@@ -1,0 +1,23 @@
+{
+  "dart.lineLength": 120,
+  "editor.formatOnSave": false,
+  "editor.rulers": [120],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "search.exclude": {
+    "**/build/": true,
+    "**/ios/Pods/": true,
+    "**/android/.gradle/": true,
+    "**/android/app/build/": true,
+    "**/android/build/": true,
+    "**/android/gradle/": true,
+    "**/ios/Flutter/": true,
+    "**/ios/Flutter/AppFrameworkInfo.plist": true,
+    "**/ios/Flutter/Flutter.podspec": true,
+    "**/ios/Flutter/flutter_export_environment.sh": true,
+    "**/ios/Runner/GeneratedPluginRegistrant.{h,m}": true
+  },
+  "java.configuration.updateBuildConfiguration": "interactive"
+}
