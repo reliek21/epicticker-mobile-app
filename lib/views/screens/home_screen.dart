@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
+import 'package:epicticker/views/routes/main_routes.dart';
 import 'package:epicticker/views/widgets/day_left_card_widget.dart';
 import 'package:epicticker/views/widgets/information_dash_widget.dart';
 
@@ -39,9 +40,8 @@ class HomeScreen extends StatelessWidget {
         child: Container(height: 50.0),
       ),
       floatingActionButton: FloatingActionButton(
-        // Todo: Create a new day
         backgroundColor: EpicTickerColors.brown,
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, MainRoutes.newCountDown),
         tooltip: 'Add new day',
         child: const Icon(
           Icons.add,
