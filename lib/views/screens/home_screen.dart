@@ -32,6 +32,23 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: EpicTickerColors.primary,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
+      bottomNavigationBar: BottomAppBar(
+        height: 63.0,
+        color: EpicTickerColors.brown,
+        shape: const CircularNotchedRectangle(),
+        child: Container(height: 50.0),
+      ),
+      floatingActionButton: FloatingActionButton(
+        // Todo: Create a new day
+        backgroundColor: EpicTickerColors.brown,
+        onPressed: () {},
+        tooltip: 'Add new day',
+        child: const Icon(
+          Icons.add,
+          size: 24.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
