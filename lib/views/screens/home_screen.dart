@@ -17,12 +17,12 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 46.0),
             child: const InformationDashWidget()
           ),
-          const DayLeftCardWidget(),
-          const DayLeftCardWidget(),
-          const DayLeftCardWidget(),
-          const DayLeftCardWidget(),
-          const DayLeftCardWidget(),
-          const DayLeftCardWidget(),
+          const DayLeftCardWidget(
+            title: 'Get out from the company',
+            year: 2023,
+            month: 12,
+            day: 24
+          ),
         ],
       ),
     );

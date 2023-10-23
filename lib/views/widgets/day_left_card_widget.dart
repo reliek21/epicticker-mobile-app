@@ -1,9 +1,21 @@
+import 'package:epicticker/utils/difference_date_util.dart';
 import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 
 class DayLeftCardWidget extends StatelessWidget {
-  const DayLeftCardWidget({super.key});
+  final String title;
+  final int year;
+  final int month;
+  final int day;
+
+  const DayLeftCardWidget({
+    super.key,
+    required this.title,
+    required this.year,
+    required this.month,
+    required this.day,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +31,14 @@ class DayLeftCardWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Get out from company',
+            title,
             style: EpicTickerTextStyles.heading(
               color: EpicTickerColors.dark,
               fontWeight: FontWeight.bold
             ),
           ),
           Text(
-            '32 days',
+            calculateDateDifference(year, month, day),
             style: EpicTickerTextStyles.heading(
               color: EpicTickerColors.brown
             ),
