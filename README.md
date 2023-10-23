@@ -1,16 +1,46 @@
-# epicticker_flutter_app
+<div align="center">
+  <img src="" alt="EpicTracker cover image" width="100%">
+</div>
 
-A new Flutter project.
+## Description:
+EpicTracker is the ultimate mobile application for those who want to manage and transform your important event in your life.
 
-## Getting Started
+## Features
+- Dashboard to preview all CountDown
+- Light/Dark Mode
 
-This project is a starting point for a Flutter application.
+<!-- ## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+Attach some screenshots of the application. For example:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screenshot 1](/screenshots/screenshot1.png)
+![Screenshot 2](/screenshots/screenshot2.png) -->
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+1. Clone the repository with **SSH**: `git@github.com:reliek21/epicticker-mobile-app.git`
+2. Open the project directory: `cd epicticker-mobile-app`
+3. Run `flutter pub get` to install dependencies
+<!-- 4. Run `flutter pub run build_runner build --delete-conflicting-outputs` to build all models -->
+<!-- 5. (Optional) Run this command if you need to watch every moment the changes on the model: `dart run build_runner watch` -->
+4. Run `flutter run` to compile and run the application
+
+## Contribution
+1. Fork the repository or clone
+2. Create a new branch: `git checkout -b my-new-feature`
+3. Make the necessary changes and commit: `git commit -am 'feat: add new feature'` using [**conventional commits**](https://www.conventionalcommits.org/en/v1.0.0/)
+4. Push your changes: `git push origin my-new-feature`
+5. Create a pull request to the repository
+
+
+## Tech Stack
+**Client**: Dart & Flutter, Provider and SharePreferences
+
+## License
+If you want others to use your application or its source code, you should include a license section. For example:
+This application is licensed under License. See `LICENSE.md` for more details.
+
+## Contact
+If you want others to contact you to report issues or collaborate on the project, you should include a contact section. For example:
+- Email: keilerguardo@gmail.com
+- Twitter: [@reliek21](https://twitter.com/reliek21)
+- Github: [@reliek21](https://github.com/reliek21)

@@ -1,28 +1,28 @@
 {
   "tasks": [
     {
-      "label": "build",
-      "type": "flutter",
       "command": "build",
+      "label": "build",
       "problemMatcher": [
         "$flutter-build"
-      ]
+      ],
+      "type": "flutter"
     },
     {
-      "label": "run",
-      "type": "flutter",
       "command": "run",
+      "label": "run",
       "problemMatcher": [
         "$flutter-run"
-      ]
+      ],
+      "type": "flutter"
     },
     {
-      "label": "test",
-      "type": "flutter",
       "command": "test",
+      "label": "test",
       "problemMatcher": [
         "$flutter-test"
-      ]
+      ],
+      "type": "flutter"
     }
   ]
 }
