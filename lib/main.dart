@@ -1,28 +1,28 @@
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
-import 'package:epicticker/views/routes/main_routes.dart';
+import 'package:provider/provider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'package:epicticker/config/theme/app_theme.dart';
+import 'package:epicticker/presentation/provider/count_down_provider.dart';
+import 'package:epicticker/presentation/routes/main_routes.dart';
 
-  final database = await openDatabase(
-    join(await getDatabasesPath(), 'doggie_database.db'),
-  );
-
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      initialRoute: MainRoutes.home,
-      routes: getRoutes(),
-      title: 'EpicTicker',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (BuildContext context) => CountDownProvider())
+      ],
+      child: MaterialApp(
+        title: 'EpicTicker',
+        routes: getRoutes(),
+        theme: AppTheme.getTheme(),
+        initialRoute: MainRoutes.home,
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

@@ -12,12 +12,6 @@ class InformationDashWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          'Upcoming Day',
-          style: EpicTickerTextStyles.extraHeading(
-            color: EpicTickerColors.dark
-          ),
-        ),
-        Text(
           '32 days',
           style: EpicTickerTextStyles.heading(
             color: EpicTickerColors.brown
@@ -28,7 +22,13 @@ class InformationDashWidget extends StatelessWidget {
           style: EpicTickerTextStyles.heading(
             color: EpicTickerColors.brown
           ),
-        )
+        ),
+        Text(
+          'Upcoming Day',
+          style: EpicTickerTextStyles.extraHeading(
+            color: EpicTickerColors.dark
+          ),
+        ),
       ],
     );
   }
