@@ -7,7 +7,7 @@ environment:
   sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
   nested: ^1.0.0
