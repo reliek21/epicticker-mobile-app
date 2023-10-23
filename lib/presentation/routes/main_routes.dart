@@ -10,7 +10,7 @@ class MainRoutes {
 }
 
 Map<String, WidgetBuilder> getRoutes() {
-  return {
+  return <String, WidgetBuilder>{
     MainRoutes.home: (BuildContext context) => const HomeScreen(),
     MainRoutes.newCountDown: (BuildContext context) => const NewCountDownScreen()
   };

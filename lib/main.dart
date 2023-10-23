@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:nested/nested.dart';
 import 'package:provider/provider.dart';
 
 import 'package:epicticker/config/theme/app_theme.dart';
@@ -13,8 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (BuildContext context) => CountDownProvider())
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider<CountDownProvider>(create: (BuildContext context) => CountDownProvider())
       ],
       child: MaterialApp(
         title: 'EpicTicker',

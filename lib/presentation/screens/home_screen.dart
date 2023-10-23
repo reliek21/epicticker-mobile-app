@@ -1,3 +1,4 @@
+import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
-        children: [
+        children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(vertical: 46.0),
@@ -35,14 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Consumer<CountDownProvider>(
             builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
-              final countdowns = countdownProvider.countDownList;
+              final List<CountDownEntity> countdowns = countdownProvider.countDownList;
 
               if (countdowns.isEmpty) {
                 return const Text('No countdowns yet.');
               }
 
               return Column(
-                children: countdowns.map((coundown) {
+                children: countdowns.map((CountDownEntity coundown) {
                   return DayLeftCardWidget(
                     title: coundown.name,
                     year: coundown.year,

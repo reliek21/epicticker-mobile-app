@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CountDownProvider extends ChangeNotifier {
-  List<CountDownEntity> _countDownList = [];
+  List<CountDownEntity> _countDownList = <CountDownEntity>[];
   List<CountDownEntity> get countDownList => _countDownList;
 
   Future<void> loadCountDowns() async {
-    final prefs = await SharedPreferences.getInstance();
-    final jsonString = prefs.getString('countdownList');
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? jsonString = prefs.getString('countdownList');
 
     if (jsonString != null) {
       final List<dynamic> list = json.decode(jsonString);
 
       _countDownList = List<CountDownEntity>.from(
-        list.map((item) => CountDownEntity(
+        list.map((dynamic item) => CountDownEntity(
           name: item['name'],
           year: item['year'],
           month: item['month'],
@@ -29,11 +29,11 @@ class CountDownProvider extends ChangeNotifier {
   }
 
   Future<void> addCountDown(CountDownEntity task) async {
-    final prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     _countDownList.add(task);
 
-    final jsonString = json.encode(
-      _countDownList.map((item) => {
+    final String jsonString = json.encode(
+      _countDownList.map((CountDownEntity item) => <String, Object>{
         'name': item.name,
         'year': item.year,
         'month': item.month,

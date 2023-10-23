@@ -29,7 +29,7 @@ class DayLeftCardWidget extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           Text(
             title,
             style: EpicTickerTextStyles.heading(

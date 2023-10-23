@@ -7,7 +7,7 @@ This change request contains:
 - [ ] ♻️ Refactor (non-functional changes)
 - [ ] ⚡ Performance Improvements
 - [ ] 📝 Documentation level changes
-- [ ] 🔧 Other (please describe): 
+- [ ] 🔧 Other (please describe):
 
 
 ### What is the new functionality?
