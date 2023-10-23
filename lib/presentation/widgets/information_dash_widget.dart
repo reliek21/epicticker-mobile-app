@@ -10,7 +10,7 @@ class InformationDashWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
+      children: <Widget>[
         Text(
           '32 days',
           style: EpicTickerTextStyles.heading(

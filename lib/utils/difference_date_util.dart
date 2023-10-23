@@ -5,20 +5,20 @@ String calculateDateDifference(int year, int month, int day) {
   final Duration difference = selectedDate.difference(now);
 
   // Remaining years
-  final years = difference.inDays ~/ 365;
+  final int years = difference.inDays ~/ 365;
 
   // Remaining months
-  final remainingDays = difference.inDays % 365;
-  final months = remainingDays ~/ 30;
+  final int remainingDays = difference.inDays % 365;
+  final int months = remainingDays ~/ 30;
 
   // Remaining days
-  final days = remainingDays % 30;
+  final int days = remainingDays % 30;
 
   return conditionalToShowDate(years, months, days);
 }
 
 String conditionalToShowDate(int year, int month, int day) {
-  final parts = <String>[];
+  final List<String> parts = <String>[];
 
   if (year > 0) {
     parts.add('$year year${year > 1 ? 's' : ''}');

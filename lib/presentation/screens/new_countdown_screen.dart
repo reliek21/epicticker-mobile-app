@@ -36,7 +36,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
       margin: const EdgeInsets.only(top: 40.0),
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
-        children: [
+        children: <Widget>[
           CustomTextFormFieldWidget(
             hintText: 'Name',
             controller: _textNameController,
@@ -62,13 +62,13 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
             text: 'Save',
             fillButton: true,
             onPressed: () {
-              final name = _textNameController.text;
-              final year = int.tryParse(_textYearController.text) ?? 0;
-              final month = int.tryParse(_textMonthController.text) ?? 0;
-              final day = int.tryParse(_textDayController.text) ?? 0;
+              final String name = _textNameController.text;
+              final int year = int.tryParse(_textYearController.text) ?? 0;
+              final int month = int.tryParse(_textMonthController.text) ?? 0;
+              final int day = int.tryParse(_textDayController.text) ?? 0;
 
               if (name.isNotEmpty && year > 0 && month > 0 && day > 0) {
-                final countdown = CountDownEntity(
+                final CountDownEntity countdown = CountDownEntity(
                   name: name,
                   year: year,
                   month: month,
