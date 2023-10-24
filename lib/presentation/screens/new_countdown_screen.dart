@@ -98,19 +98,19 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
         onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(
           Icons.arrow_back,
-          color: EpicTickerColors.dark,
+          color: EpicTickerColors.accent,
         ),
       ),
       automaticallyImplyLeading: false,
       title: Text(
         'Create a new day',
         style: EpicTickerTextStyles.heading(
-          color: EpicTickerColors.dark,
+          color: EpicTickerColors.accent,
           fontWeight: FontWeight.bold
         ),
       ),
       centerTitle: true,
-      backgroundColor: EpicTickerColors.primary,
+      backgroundColor: EpicTickerColors.main,
       elevation: 0.0,
     );
   }
@@ -119,7 +119,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      backgroundColor: EpicTickerColors.primary,
+      backgroundColor: EpicTickerColors.main,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );
   }

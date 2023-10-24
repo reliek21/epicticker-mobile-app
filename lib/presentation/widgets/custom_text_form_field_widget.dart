@@ -14,18 +14,18 @@ class CustomTextFormFieldWidget extends StatelessWidget {
       height: 70.0,
       decoration: BoxDecoration(
         border: Border.all(
-          color: EpicTickerColors.brown.withOpacity(0.20),
+          color: EpicTickerColors.secondary.withOpacity(0.20),
         ),
         borderRadius: BorderRadius.circular(8.0),
-        color: EpicTickerColors.brown.withOpacity(0.10),
+        color: EpicTickerColors.secondary.withOpacity(0.10),
       ),
       child: Center(
         child: TextFormField(
           controller: controller,
-          style: EpicTickerTextStyles.title(color: EpicTickerColors.brown),
+          style: EpicTickerTextStyles.title(color: EpicTickerColors.secondary),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: EpicTickerTextStyles.title(color: EpicTickerColors.brown),
+            hintStyle: EpicTickerTextStyles.title(color: EpicTickerColors.secondary),
             border: InputBorder.none,
             contentPadding: const EdgeInsets.all(16.0),
           ),

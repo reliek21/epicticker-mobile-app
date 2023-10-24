@@ -15,21 +15,21 @@ class OutlineButtonWidget extends StatelessWidget {
       height: 70.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: (fillButton == false) ? Colors.transparent : EpicTickerColors.brown,
-        border: (fillButton == false) ? Border.all(color: EpicTickerColors.brown) : null,
+        color: (fillButton == false) ? Colors.transparent : EpicTickerColors.main,
+        border: (fillButton == false) ? Border.all(color: EpicTickerColors.main) : null,
         borderRadius: BorderRadius.circular(10.0)
       ),
       child: OutlinedButton(
         onPressed: onPressed,
         style: ButtonStyle(
           overlayColor: MaterialStateProperty.all(
-            EpicTickerColors.brown.withOpacity(0.10),
+            EpicTickerColors.main.withOpacity(0.10),
           ),
         ),
         child: Text(
           text,
           style: EpicTickerTextStyles.title(
-            color: (fillButton != null) ? EpicTickerColors.white : EpicTickerColors.brown,
+            color: (fillButton != null) ? EpicTickerColors.secondary : EpicTickerColors.main,
             fontWeight: FontWeight.bold
           ),
         )
