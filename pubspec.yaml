@@ -7,8 +7,8 @@ environment:
   sdk: ">=3.0.2 <4.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.6
   bootstrap_icons: ^1.11.1
-  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_boring_avatars: ^1.0.1
