@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bootstrap_icons:
+    dependency: "direct main"
+    description:
+      name: bootstrap_icons
+      sha256: "7b073ae60f9dd48c2919994744132b8a576cf7243483a6698644f94b0c47bd7d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.11.1"
   characters:
     dependency: transitive
     description:
@@ -78,6 +86,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_boring_avatars:
+    dependency: "direct main"
+    description:
+      name: flutter_boring_avatars
+      sha256: "6b4a5e913b7b580ef372761c4134167a832c4054b1f409ddd6812b477d4183d7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -285,6 +301,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  svg_path_parser:
+    dependency: transitive
+    description:
+      name: svg_path_parser
+      sha256: c0864f85efd1024e9f667ddcda10601b1199e3980fb07d63701f9b9a047bdab3
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   term_glyph:
     dependency: transitive
     description:
