@@ -5,6 +5,7 @@ import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/provider/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/dashboard_widget.dart';
 import 'package:epicticker/presentation/widgets/day_left_card_widget.dart';
+import 'package:epicticker/presentation/widgets/floating_button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,18 +36,21 @@ class _HomeScreenState extends State<HomeScreen> {
 								final List<CountDownEntity> countdowns = countdownProvider.countDownList;
 
 								if (countdowns.isEmpty) {
-									return const Text('No countdowns yet.');
+									return const Center(child: Text('No countdowns yet.'));
 								}
 
-								return Column(
-									children: countdowns.map((CountDownEntity countdown) {
-										return DayLeftCardWidget(
-											title: countdown.name,
-											year: countdown.year,
-											month: countdown.month,
-											day: countdown.day
-										);
-									}).toList(),
+								return Container(
+									margin: const EdgeInsets.only(bottom: 100.0),
+									child: Column(
+										children: countdowns.map((CountDownEntity countdown) {
+											return DayLeftCardWidget(
+												title: countdown.name,
+												year: countdown.year,
+												month: countdown.month,
+												day: countdown.day
+											);
+										}).toList(),
+									),
 								);
 							}
 						),
@@ -61,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: EpicTickerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: bodyContainer(context))),
+			floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+			floatingActionButton: const FloatingButtonWidget()
     );
   }
 }

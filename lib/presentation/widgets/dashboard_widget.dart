@@ -31,7 +31,7 @@ class DashboardWidget extends StatelessWidget {
           Text(
             'Upcoming Day',
             style: EpicTickerTextStyles.extraHeading(
-							color: EpicTickerColors.secondary,
+							color: EpicTickerColors.main,
 							fontWeight: FontWeight.w900
 						),
           ),
