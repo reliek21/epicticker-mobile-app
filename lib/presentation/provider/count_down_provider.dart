@@ -28,6 +28,53 @@ class CountDownProvider extends ChangeNotifier {
     }
   }
 
+	Future<DateTime?> getClosestDate() async {
+    final DateTime currentDate = DateTime.now();
+    DateTime? closestDate;
+    Duration closestDuration = const Duration(days: 365 * 100);
+
+    for (final CountDownEntity countDown in _countDownList) {
+      final DateTime countDownDate = DateTime(countDown.year, countDown.month, countDown.day);
+      final Duration duration = countDownDate.difference(currentDate);
+
+      if (duration.isNegative) {
+        continue;
+      }
+
+      if (duration < closestDuration) {
+        closestDuration = duration;
+        closestDate = countDownDate;
+      }
+    }
+
+    return closestDate;
+  }
+
+	CountDownEntity getClosestEvent() {
+    final now = DateTime.now();
+    CountDownEntity? closestEvent;
+    Duration closestDuration = Duration(days: 365 * 100); // Inicializado con un valor alto.
+
+    for (final event in _countDownList) {
+      final eventDate = DateTime(event.year, event.month, event.day);
+      final duration = eventDate.difference(now);
+
+      if (duration.isNegative) {
+        // La fecha del evento ya pasó, no la consideramos.
+        continue;
+      }
+
+      if (duration < closestDuration) {
+        closestDuration = duration;
+        closestEvent = event;
+      }
+    }
+
+    return closestEvent ?? CountDownEntity(name: 'No upcoming events', year: 0, month: 0, day: 0);
+  }
+
+
+
   Future<void> addCountDown(CountDownEntity task) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     _countDownList.add(task);
