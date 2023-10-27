@@ -10,8 +10,8 @@
 # over specified directory or subdirectories
 #/target/directory/ @mr-x
 
-# This config gonna request HabiGo
+# This config gonna request epicticker-mobile-app
 # (Not sure if gonna allow pr merge with one
 # approve - guess so, or all approves) on any
 # change over specified directory or subdirectories
-#/target/directory/ habigo/**
+#/target/directory/ epicticker-mobile-app/**
