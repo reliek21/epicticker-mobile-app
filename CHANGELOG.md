@@ -8,12 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Added
 
+- Dynamic Next Event Added | [#11](https://github.com/reliek21/epicticker-mobile-app/pull/11) | [reliek21](https://github.com/reliek21)
 - New Design Added | [#10](https://github.com/reliek21/epicticker-mobile-app/pull/10) | [reliek21](https://github.com/reliek21)
 - Actions of Github added | [#4](https://github.com/reliek21/epicticker-mobile-app/pull/4) | [reliek21](https://github.com/reliek21)
 
 ### Updated
 
 ### Refactor
+- Refactor of components of Dashboard and utils | [#11](https://github.com/reliek21/epicticker-mobile-app/pull/11) | [reliek21](https://github.com/reliek21)
 - Linter anotation added | [#4](https://github.com/reliek21/epicticker-mobile-app/pull/4) | [reliek21](https://github.com/reliek21)
 
 ### Fixed
