@@ -7,6 +7,7 @@ import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/provider/count_down_provider.dart';
 import 'package:epicticker/presentation/routes/main_routes.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
+import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
 
 class NewCountDownScreen extends StatefulWidget {
@@ -18,17 +19,13 @@ class NewCountDownScreen extends StatefulWidget {
 
 class _NewCountDownScreenState extends State<NewCountDownScreen> {
   final TextEditingController _textNameController = TextEditingController();
-  final TextEditingController _textYearController = TextEditingController();
-  final TextEditingController _textMonthController = TextEditingController();
-  final TextEditingController _textDayController = TextEditingController();
+  final TextEditingController _textFullDateController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
     _textNameController.dispose();
-    _textYearController.dispose();
-    _textMonthController.dispose();
-    _textDayController.dispose();
+		_textFullDateController.dispose();
   }
 
   Widget _body(BuildContext context) {
@@ -42,46 +39,39 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
             controller: _textNameController,
           ),
           const SizedBox(height: 8.0),
-          CustomTextFormFieldWidget(
-            hintText: 'Final Year',
-            controller: _textYearController,
-          ),
-          const SizedBox(height: 8.0),
-          CustomTextFormFieldWidget(
-            hintText: 'Final Month',
-            controller: _textMonthController,
-          ),
-          const SizedBox(height: 8.0),
-          CustomTextFormFieldWidget(
-            hintText: 'Final Day',
-            controller: _textDayController,
-          ),
-          const SizedBox(height: 8.0),
+					DatePickerWidget(
+						restorationId: 'main',
+						controller: _textFullDateController,
+					),
           const SizedBox(height: 40.0),
           OutlineButtonWidget(
             text: 'Save',
             fillButton: true,
             onPressed: () {
               final String name = _textNameController.text;
-              final int year = int.tryParse(_textYearController.text) ?? 0;
-              final int month = int.tryParse(_textMonthController.text) ?? 0;
-              final int day = int.tryParse(_textDayController.text) ?? 0;
+							final String fullDate = _textFullDateController.text;
+              final List<String> dateParts = fullDate.split('/');
 
-              if (name.isNotEmpty && year > 0 && month > 0 && day > 0) {
-                final CountDownEntity countdown = CountDownEntity(
-                  name: name,
-                  year: year,
-                  month: month,
-                  day: day
-                );
+								if (dateParts.length == 3) {
+									final int year = int.tryParse(dateParts[2]) ?? 0;
+									final int month = int.tryParse(dateParts[1]) ?? 0;
+									final int day = int.tryParse(dateParts[0]) ?? 0;
 
-                Provider.of<CountDownProvider>(context, listen: false).addCountDown(countdown);
+								if (name.isNotEmpty && year > 0 && month > 0 && day > 0) {
+									final CountDownEntity countdown = CountDownEntity(
+										name: name,
+										year: year,
+										month: month,
+										day: day
+									);
+
+									Provider.of<CountDownProvider>(context, listen: false).addCountDown(countdown);
+								}
+
 
                 // clear inputs before to add
                 _textNameController.clear();
-                _textYearController.clear();
-                _textMonthController.clear();
-                _textDayController.clear();
+								_textFullDateController.clear();
 
                 Navigator.pushNamed(context, MainRoutes.home);
               }
@@ -98,19 +88,19 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
         onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(
           Icons.arrow_back,
-          color: EpicTickerColors.accent,
+          color: EpicTickerColors.main,
         ),
       ),
       automaticallyImplyLeading: false,
       title: Text(
         'Create a new day',
         style: EpicTickerTextStyles.heading(
-          color: EpicTickerColors.accent,
+          color: EpicTickerColors.main,
           fontWeight: FontWeight.bold
         ),
       ),
       centerTitle: true,
-      backgroundColor: EpicTickerColors.main,
+      backgroundColor: EpicTickerColors.accent,
       elevation: 0.0,
     );
   }
@@ -119,7 +109,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      backgroundColor: EpicTickerColors.main,
+      backgroundColor: EpicTickerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );
   }

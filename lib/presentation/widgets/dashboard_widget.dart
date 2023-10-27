@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 

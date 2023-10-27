@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 
@@ -29,7 +30,7 @@ class OutlineButtonWidget extends StatelessWidget {
         child: Text(
           text,
           style: EpicTickerTextStyles.title(
-            color: (fillButton != null) ? EpicTickerColors.secondary : EpicTickerColors.main,
+            color: (fillButton != null) ? EpicTickerColors.accent : EpicTickerColors.main,
             fontWeight: FontWeight.bold
           ),
         )

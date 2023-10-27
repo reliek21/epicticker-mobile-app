@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/provider/count_down_provider.dart';
