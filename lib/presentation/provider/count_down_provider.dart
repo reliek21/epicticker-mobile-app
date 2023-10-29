@@ -37,9 +37,7 @@ class CountDownProvider extends ChangeNotifier {
       final DateTime countDownDate = DateTime(countDown.year, countDown.month, countDown.day);
       final Duration duration = countDownDate.difference(currentDate);
 
-      if (duration.isNegative) {
-        continue;
-      }
+      if (duration.isNegative) continue;
 
       if (duration < closestDuration) {
         closestDuration = duration;
@@ -51,18 +49,14 @@ class CountDownProvider extends ChangeNotifier {
   }
 
 	CountDownEntity getClosestEvent() {
-    final now = DateTime.now();
+    final DateTime now = DateTime.now();
     CountDownEntity? closestEvent;
-    Duration closestDuration = Duration(days: 365 * 100); // Inicializado con un valor alto.
+    Duration closestDuration = const Duration(days: 365 * 100);
+    for (final CountDownEntity event in _countDownList) {
+      final DateTime eventDate = DateTime(event.year, event.month, event.day);
+      final Duration duration = eventDate.difference(now);
 
-    for (final event in _countDownList) {
-      final eventDate = DateTime(event.year, event.month, event.day);
-      final duration = eventDate.difference(now);
-
-      if (duration.isNegative) {
-        // La fecha del evento ya pasó, no la consideramos.
-        continue;
-      }
+      if (duration.isNegative) continue;
 
       if (duration < closestDuration) {
         closestDuration = duration;
@@ -70,7 +64,7 @@ class CountDownProvider extends ChangeNotifier {
       }
     }
 
-    return closestEvent ?? CountDownEntity(name: 'No upcoming events', year: 0, month: 0, day: 0);
+    return closestEvent ?? const CountDownEntity(name: 'No upcoming events', year: 0, month: 0, day: 0);
   }
 
 
@@ -91,8 +85,5 @@ class CountDownProvider extends ChangeNotifier {
     prefs.setString('countdownList', jsonString);
 
     notifyListeners();
-  }
-
-
-
+	}
 }
