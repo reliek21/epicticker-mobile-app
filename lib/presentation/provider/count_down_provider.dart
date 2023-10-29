@@ -50,6 +50,7 @@ class CountDownProvider extends ChangeNotifier {
 
 	CountDownEntity getClosestEvent() {
     final DateTime now = DateTime.now();
+
     CountDownEntity? closestEvent;
     Duration closestDuration = const Duration(days: 365 * 100);
     for (final CountDownEntity event in _countDownList) {
@@ -66,6 +67,22 @@ class CountDownProvider extends ChangeNotifier {
 
     return closestEvent ?? const CountDownEntity(name: 'No upcoming events', year: 0, month: 0, day: 0);
   }
+
+	List<CountDownEntity> getRecentCountDownsByDays(int count) {
+		final List<CountDownEntity> cloneList = List<CountDownEntity>.from(_countDownList);
+
+		cloneList.sort((CountDownEntity a, CountDownEntity b) {
+			final DateTime dateA = DateTime(a.year, a.month, a.day);
+			final DateTime dateB = DateTime(b.year, b.month, b.day);
+
+			final Duration durationA = dateA.difference(DateTime.now());
+			final Duration durationB = dateB.difference(DateTime.now());
+
+			return durationA.compareTo(durationB);
+		});
+
+		return _countDownList.take(count).toList();
+	}
 
 
 

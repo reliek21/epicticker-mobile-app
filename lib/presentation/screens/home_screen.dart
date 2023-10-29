@@ -35,11 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
 						),
 						child: Consumer<CountDownProvider>(
 							builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
-								final List<CountDownEntity> countdowns = countdownProvider.countDownList;
+								final List<CountDownEntity> countdowns = countdownProvider.getRecentCountDownsByDays(20);
 
-								if (countdowns.isEmpty) {
-									return const Center(child: Text('No countdowns yet.'));
-								}
+								if (countdowns.isEmpty) const Center(child: Text('No countdowns yet.'));
 
 								return Container(
 									margin: const EdgeInsets.only(bottom: 100.0),
