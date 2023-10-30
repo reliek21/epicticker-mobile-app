@@ -12,7 +12,7 @@ class FloatingButtonWidget extends StatelessWidget {
 			width: 260.0,
 			height: 60.0,
 			decoration: BoxDecoration(
-				color: EpicTickerColors.main,
+				color: EpicTrackerColors.main,
 				borderRadius: BorderRadius.circular(100),
 			),
 			child: Row(
@@ -24,12 +24,12 @@ class FloatingButtonWidget extends StatelessWidget {
 							width: 40.0,
 							height: 40.0,
 							decoration: BoxDecoration(
-								color: EpicTickerColors.accent,
+								color: EpicTrackerColors.accent,
 								borderRadius: BorderRadius.circular(100.0)
 							),
 							child: const Icon(
 								BootstrapIcons.plus,
-								color: EpicTickerColors.main,
+								color: EpicTrackerColors.main,
 							),
 						),
 					),

@@ -24,20 +24,20 @@ class CustomTextFormFieldWidget extends StatelessWidget {
       height: 70.0,
       decoration: BoxDecoration(
         border: Border.all(
-          color: EpicTickerColors.main.withOpacity(0.20),
+          color: EpicTrackerColors.main.withOpacity(0.20),
         ),
         borderRadius: BorderRadius.circular(8.0),
-        color: EpicTickerColors.main.withOpacity(0.10),
+        color: EpicTrackerColors.main.withOpacity(0.10),
       ),
       child: Center(
         child: TextFormField(
 					keyboardType: keyboardType,
           controller: controller,
 					initialValue: initialValue,
-          style: EpicTickerTextStyles.title(color: EpicTickerColors.main),
+          style: EpicTrackerTextStyles.title(color: EpicTrackerColors.main),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: EpicTickerTextStyles.title(color: EpicTickerColors.main),
+            hintStyle: EpicTrackerTextStyles.title(color: EpicTrackerColors.main),
             border: InputBorder.none,
             contentPadding: const EdgeInsets.all(16.0),
           ),

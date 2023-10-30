@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EpicTickerColors {
-  EpicTickerColors._();
+class EpicTrackerColors {
+  EpicTrackerColors._();
 
   static const Color main = Color(0xff222831);
   static const Color secondary = Color(0xff00ADB5);

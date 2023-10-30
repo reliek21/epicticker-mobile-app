@@ -17,14 +17,14 @@ class DayLeftWidget extends StatelessWidget {
 					height: 40.0,
 					decoration: BoxDecoration(
 						border: Border.all(
-							color: EpicTickerColors.main,
+							color: EpicTrackerColors.main,
 							width: 1.5
 						),
 						borderRadius: BorderRadius.circular(10.0)
 					),
 					child: Center(
-						child: Text(days.toString(), style: EpicTickerTextStyles.title(
-							color: EpicTickerColors.main,
+						child: Text(days.toString(), style: EpicTrackerTextStyles.title(
+							color: EpicTrackerColors.main,
 							fontWeight: FontWeight.w900
 						),
 
@@ -32,8 +32,8 @@ class DayLeftWidget extends StatelessWidget {
 					),
 				),
 				const SizedBox(height: 4.0),
-				Text(text, style: EpicTickerTextStyles.subTitle(
-						color: EpicTickerColors.main,
+				Text(text, style: EpicTrackerTextStyles.subTitle(
+						color: EpicTrackerColors.main,
 						fontWeight: FontWeight.w600
 					),
 				)

@@ -13,7 +13,7 @@ class OutlineButtonWidget extends StatelessWidget {
 		this.fillButton = false,
 		required this.text,
 		required this.onPressed,
-		this.outlineColor = EpicTickerColors.main
+		this.outlineColor = EpicTrackerColors.main
 	});
 
   @override
@@ -22,7 +22,7 @@ class OutlineButtonWidget extends StatelessWidget {
       height: 70.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: (fillButton == false) ? Colors.transparent : EpicTickerColors.main,
+        color: (fillButton == false) ? Colors.transparent : EpicTrackerColors.main,
         border: (fillButton == false) ? Border.all(color: outlineColor) : null,
         borderRadius: BorderRadius.circular(10.0)
       ),
@@ -35,8 +35,8 @@ class OutlineButtonWidget extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: EpicTickerTextStyles.title(
-            color: (fillButton != false) ? EpicTickerColors.accent : outlineColor,
+          style: EpicTrackerTextStyles.title(
+            color: (fillButton != false) ? EpicTrackerColors.accent : outlineColor,
             fontWeight: FontWeight.bold
           ),
         )

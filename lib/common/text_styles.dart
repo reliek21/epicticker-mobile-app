@@ -3,13 +3,13 @@ import 'package:epicticker/common/color.dart';
 
 const String fontFamily = 'Nunito';
 
-class EpicTickerTextStyles {
-  EpicTickerTextStyles._();
+class EpicTrackerTextStyles {
+  EpicTrackerTextStyles._();
 
   static TextStyle extraHeading({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w700,
   }) => TextStyle(
     color: color,
@@ -23,7 +23,7 @@ class EpicTickerTextStyles {
   static TextStyle semiExtraHeading({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w600,
   }) => TextStyle(
     color: color,
@@ -37,7 +37,7 @@ class EpicTickerTextStyles {
   static TextStyle heading({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w600,
   }) => TextStyle(
     color: color,
@@ -51,7 +51,7 @@ class EpicTickerTextStyles {
   static TextStyle title({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w600,
   }) => TextStyle(
     color: color,
@@ -65,7 +65,7 @@ class EpicTickerTextStyles {
   static TextStyle subTitle({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w600,
   }) => TextStyle(
     color: color,
@@ -79,7 +79,7 @@ class EpicTickerTextStyles {
   static TextStyle caption({
     double? height,
     bool underline = false,
-    Color color = EpicTickerColors.accentBlack,
+    Color color = EpicTrackerColors.accentBlack,
     FontWeight fontWeight = FontWeight.w400,
   }) => TextStyle(
     color: color,

@@ -32,15 +32,15 @@ class DayLeftCardWidget extends StatelessWidget {
         color: Colors.transparent,
 				border: Border.all(
 					width: 2.0,
-					color: EpicTickerColors.main
+					color: EpicTrackerColors.main
 				),
         borderRadius: const BorderRadius.all(Radius.circular(10.0))
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(title, style: EpicTickerTextStyles.heading(
-              color: EpicTickerColors.main,
+          Text(title, style: EpicTrackerTextStyles.heading(
+              color: EpicTrackerColors.main,
               fontWeight: FontWeight.bold
             ),
           ),

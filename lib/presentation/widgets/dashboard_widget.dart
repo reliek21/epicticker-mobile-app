@@ -16,7 +16,7 @@ class DashboardWidget extends StatelessWidget {
 			child: Center(
 				child: Text(
 					'No upcoming events',
-					style: EpicTickerTextStyles.semiExtraHeading(
+					style: EpicTrackerTextStyles.semiExtraHeading(
 						fontWeight: FontWeight.w700
 					)
 				)
@@ -61,19 +61,19 @@ class DashboardWidget extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: const EdgeInsets.only(top: 24.0),
-                  child: Text(closestEvent, style: EpicTickerTextStyles.heading(
+                  child: Text(closestEvent, style: EpicTrackerTextStyles.heading(
 											fontWeight: FontWeight.w700,
-											color: EpicTickerColors.accentBlack
+											color: EpicTrackerColors.accentBlack
 										),
                   ),
                 ),
-                Text(subtitle, style: EpicTickerTextStyles.title(
-										color: EpicTickerColors.accentBlack,
+                Text(subtitle, style: EpicTrackerTextStyles.title(
+										color: EpicTrackerColors.accentBlack,
 										fontWeight: FontWeight.w700
 									),
                 ),
-                Text(title, style: EpicTickerTextStyles.extraHeading(
-										color: EpicTickerColors.main,
+                Text(title, style: EpicTrackerTextStyles.extraHeading(
+										color: EpicTrackerColors.main,
 										fontWeight: FontWeight.w900
 									),
                 ),

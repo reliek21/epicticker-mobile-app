@@ -52,7 +52,7 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
           const SizedBox(height: 40.0),
 					OutlineButtonWidget(
             text: 'Delete',
-						outlineColor: EpicTickerColors.intensePink,
+						outlineColor: EpicTrackerColors.intensePink,
             onPressed: () {
 							final String name = _textNameController.text;
 
@@ -106,19 +106,19 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
         onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(
           Icons.arrow_back,
-          color: EpicTickerColors.main,
+          color: EpicTrackerColors.main,
         ),
       ),
       automaticallyImplyLeading: false,
       title: Text(
         'Edit day',
-        style: EpicTickerTextStyles.heading(
-          color: EpicTickerColors.main,
+        style: EpicTrackerTextStyles.heading(
+          color: EpicTrackerColors.main,
           fontWeight: FontWeight.bold
         ),
       ),
       centerTitle: true,
-      backgroundColor: EpicTickerColors.accent,
+      backgroundColor: EpicTrackerColors.accent,
       elevation: 0.0,
     );
   }
@@ -127,7 +127,7 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      backgroundColor: EpicTickerColors.accent,
+      backgroundColor: EpicTrackerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );
   }
