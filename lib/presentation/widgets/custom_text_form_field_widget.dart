@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 
@@ -8,13 +7,15 @@ class CustomTextFormFieldWidget extends StatelessWidget {
 	final void Function()? onTap;
 	final TextInputType? keyboardType;
   final TextEditingController controller;
+	final String? initialValue;
 
   const CustomTextFormFieldWidget({
 		super.key,
 		required this.hintText,
 		this.onTap,
 		this.keyboardType = TextInputType.name,
-		required this.controller
+		required this.controller,
+		this.initialValue
 	});
 
   @override
@@ -32,6 +33,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         child: TextFormField(
 					keyboardType: keyboardType,
           controller: controller,
+					initialValue: initialValue,
           style: EpicTickerTextStyles.title(color: EpicTickerColors.main),
           decoration: InputDecoration(
             hintText: hintText,

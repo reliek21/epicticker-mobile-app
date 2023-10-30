@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
+import 'package:epicticker/presentation/screens/edit_countdown_screen.dart';
 import 'package:epicticker/presentation/provider/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/dashboard_widget.dart';
 import 'package:epicticker/presentation/widgets/day_left_card_widget.dart';
@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   void initState() {
     super.initState();
@@ -36,19 +37,30 @@ class _HomeScreenState extends State<HomeScreen> {
 							builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
 								final List<CountDownEntity> countdowns = countdownProvider.countDownList;
 
-								if (countdowns.isEmpty) {
-									return const Center(child: Text('No countdowns yet.'));
-								}
+								if (countdowns.isEmpty) const Center(child: Text('No countdowns yet.'));
 
 								return Container(
 									margin: const EdgeInsets.only(bottom: 100.0),
 									child: Column(
 										children: countdowns.map((CountDownEntity countdown) {
-											return DayLeftCardWidget(
-												title: countdown.name,
-												year: countdown.year,
-												month: countdown.month,
-												day: countdown.day
+											return InkWell(
+												onTap: () {
+													CountDownEntity currentCountdown = countdown;
+
+													Navigator.push(
+														context,
+														// ignore: always_specify_types
+														MaterialPageRoute(
+															builder: (_) => EditCountDownScreen(currentCountdown: currentCountdown)
+														)
+													);
+												},
+												child: DayLeftCardWidget(
+													title: countdown.name,
+													year: countdown.year,
+													month: countdown.month,
+													day: countdown.day
+												),
 											);
 										}).toList(),
 									),

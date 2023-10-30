@@ -10,4 +10,6 @@ class CountDownEntity {
     required this.month,
     required this.day,
   });
+
+	DateTime get eventDate => DateTime(year, month, day);
 }

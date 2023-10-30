@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class DatePickerWidget extends StatefulWidget {
 	final String? restorationId;
 	final TextEditingController controller;
+	final String? initialValue;
 
 	const DatePickerWidget({
 		super.key,
 		this.restorationId,
-		required this.controller
+		required this.controller,
+		this.initialValue
 	});
 
   @override
@@ -69,6 +71,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> with RestorationMix
 	@override
 	 Widget build(BuildContext context) {
 		return CustomTextFormFieldWidget(
+			initialValue: widget.initialValue,
 			hintText: 'Select the date',
 			controller: widget.controller,
 			onTap: () => _restorableDatePickerRouteFuture.present(),
