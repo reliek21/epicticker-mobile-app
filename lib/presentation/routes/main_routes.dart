@@ -13,8 +13,8 @@ class MainRoutes {
 
 Map<String, WidgetBuilder> getRoutes() {
   return <String, WidgetBuilder>{
-    MainRoutes.home: (BuildContext context) => const HomeScreen(),
-    MainRoutes.newCountDown: (BuildContext context) => const NewCountDownScreen(),
-		MainRoutes.editCountDown: (BuildContext context) => const EditCountDownScreen(currentCountdown: null)
+    MainRoutes.home: (_) => const HomeScreen(),
+    MainRoutes.newCountDown: (_) => const NewCountDownScreen(),
+		MainRoutes.editCountDown: (_) => const EditCountDownScreen(currentCountdown: null)
   };
 }

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
-import 'package:epicticker/presentation/provider/count_down_provider.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
+import 'package:epicticker/presentation/providers/countdown/count_down_state.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
+import 'package:epicticker/utils/crud_countdown_util.dart';
 
 class EditCountDownScreen extends StatefulWidget {
 	final CountDownEntity? currentCountdown;
@@ -22,16 +21,14 @@ class EditCountDownScreen extends StatefulWidget {
 }
 
 class _EditCountDownScreenState extends State<EditCountDownScreen> {
-  final TextEditingController _textNameController = TextEditingController();
-  final TextEditingController _textFullDateController = TextEditingController();
-
+	late final CountDownState _countDownState = CountDownState();
 
 	@override
 	void initState() {
 		super.initState();
 
-		_textNameController.text = widget.currentCountdown!.name;
-    _textFullDateController.text = '${widget.currentCountdown!.day}/${widget.currentCountdown!.month}/${widget.currentCountdown!.year}';
+		_countDownState.textNameController.text = widget.currentCountdown!.name;
+    _countDownState.fullDateController.text = '${widget.currentCountdown!.day}/${widget.currentCountdown!.month}/${widget.currentCountdown!.year}';
 	}
 
   Widget _body(BuildContext context) {
@@ -42,58 +39,28 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
         children: <Widget>[
           CustomTextFormFieldWidget(
             hintText: 'Name',
-            controller: _textNameController,
+            controller: _countDownState.textNameController,
           ),
           const SizedBox(height: 8.0),
 					DatePickerWidget(
 						restorationId: 'main',
-						controller: _textFullDateController,
+						controller: _countDownState.fullDateController,
 					),
           const SizedBox(height: 40.0),
 					OutlineButtonWidget(
             text: 'Delete',
 						outlineColor: EpicTrackerColors.intensePink,
-            onPressed: () {
-							final String name = _textNameController.text;
-
-							Provider.of<CountDownProvider>(context, listen: false).removeCountDown(name);
-
-							_textNameController.clear();
-							Navigator.pushNamed(context, MainRoutes.home);
-						}
+            onPressed: () => CrudCountdown.removeCountdown(context, _countDownState.textNameController)
           ),
 					const SizedBox(height: 8.0),
           OutlineButtonWidget(
             text: 'Update Day',
             fillButton: true,
-            onPressed: () {
-              final String name = _textNameController.text;
-							final String fullDate = _textFullDateController.text;
-              final List<String> dateParts = fullDate.split('/');
-
-								if (dateParts.length == 3) {
-									final int year = int.tryParse(dateParts[2]) ?? 0;
-									final int month = int.tryParse(dateParts[1]) ?? 0;
-									final int day = int.tryParse(dateParts[0]) ?? 0;
-
-								if (name.isNotEmpty && year > 0 && month > 0 && day > 0) {
-									final CountDownEntity countdown = CountDownEntity(
-										name: name,
-										year: year,
-										month: month,
-										day: day
-									);
-
-									Provider.of<CountDownProvider>(context, listen: false).updateCountDown(countdown);
-								}
-
-                // clear inputs before to add
-                _textNameController.clear();
-								_textFullDateController.clear();
-
-                Navigator.pushNamed(context, MainRoutes.home);
-              }
-            },
+            onPressed: () => CrudCountdown.updateCountdown(
+							context,
+							_countDownState.textNameController,
+							_countDownState.fullDateController
+						)
           )
         ],
       ),

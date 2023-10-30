@@ -12,4 +12,8 @@ class CountDownEntity {
   });
 
 	DateTime get eventDate => DateTime(year, month, day);
+
+	Map<String, Object> get toJson =>  <String, Object>{
+		'name': name, 'year': year, 'month': month, 'day': day
+	};
 }

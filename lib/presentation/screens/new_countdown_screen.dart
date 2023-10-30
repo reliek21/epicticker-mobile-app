@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
-import 'package:epicticker/common/text_styles.dart';
-import 'package:epicticker/domain/entities/count_down_entity.dart';
-import 'package:epicticker/presentation/provider/count_down_provider.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
+import 'package:epicticker/presentation/providers/countdown/count_down_state.dart';
+import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
+import 'package:epicticker/utils/crud_countdown_util.dart';
 
 class NewCountDownScreen extends StatefulWidget {
   const NewCountDownScreen({super.key});
@@ -17,14 +15,12 @@ class NewCountDownScreen extends StatefulWidget {
 }
 
 class _NewCountDownScreenState extends State<NewCountDownScreen> {
-  final TextEditingController _textNameController = TextEditingController();
-  final TextEditingController _textFullDateController = TextEditingController();
+	final CountDownState _countDownState = CountDownState as CountDownState;
 
   @override
   void dispose() {
     super.dispose();
-    _textNameController.dispose();
-		_textFullDateController.dispose();
+		_countDownState.dispose();
   }
 
   Widget _body(BuildContext context) {
@@ -35,78 +31,32 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
         children: <Widget>[
           CustomTextFormFieldWidget(
             hintText: 'Name',
-            controller: _textNameController,
+            controller: _countDownState.textNameController,
           ),
           const SizedBox(height: 8.0),
 					DatePickerWidget(
 						restorationId: 'main',
-						controller: _textFullDateController,
+						controller: _countDownState.fullDateController,
 					),
           const SizedBox(height: 40.0),
           OutlineButtonWidget(
             text: 'Save',
             fillButton: true,
-            onPressed: () {
-              final String name = _textNameController.text;
-							final String fullDate = _textFullDateController.text;
-              final List<String> dateParts = fullDate.split('/');
-
-								if (dateParts.length == 3) {
-									final int year = int.tryParse(dateParts[2]) ?? 0;
-									final int month = int.tryParse(dateParts[1]) ?? 0;
-									final int day = int.tryParse(dateParts[0]) ?? 0;
-
-								if (name.isNotEmpty && year > 0 && month > 0 && day > 0) {
-									final CountDownEntity countdown = CountDownEntity(
-										name: name,
-										year: year,
-										month: month,
-										day: day
-									);
-
-									Provider.of<CountDownProvider>(context, listen: false).addCountDown(countdown);
-								}
-
-                // clear inputs before to add
-                _textNameController.clear();
-								_textFullDateController.clear();
-
-                Navigator.pushNamed(context, MainRoutes.home);
-              }
-            },
+            onPressed: () => CrudCountdown.saveCountdown(
+							context,
+							_countDownState.textNameController,
+							_countDownState.fullDateController
+						)
           )
         ],
       ),
     );
   }
 
-  AppBar _appBar(BuildContext context)  {
-    return AppBar(
-      leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: const Icon(
-          Icons.arrow_back,
-          color: EpicTrackerColors.main,
-        ),
-      ),
-      automaticallyImplyLeading: false,
-      title: Text(
-        'Create a new day',
-        style: EpicTrackerTextStyles.heading(
-          color: EpicTrackerColors.main,
-          fontWeight: FontWeight.bold
-        ),
-      ),
-      centerTitle: true,
-      backgroundColor: EpicTrackerColors.accent,
-      elevation: 0.0,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(context),
+      appBar: const AppBarWidget(title: 'Create a new day') as PreferredSizeWidget,
       backgroundColor: EpicTrackerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );
