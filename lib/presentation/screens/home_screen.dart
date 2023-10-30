@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/screens/edit_countdown_screen.dart';
-import 'package:epicticker/presentation/provider/count_down_provider.dart';
+import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/dashboard_widget.dart';
 import 'package:epicticker/presentation/widgets/day_left_card_widget.dart';
 import 'package:epicticker/presentation/widgets/floating_button_widget.dart';
@@ -30,9 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 				children: <Widget>[
 					const DashboardWidget(),
 					Container(
-						margin: const EdgeInsets.only(
-							top: 24.0
-						),
+						margin: const EdgeInsets.only(top: 24.0),
 						child: Consumer<CountDownProvider>(
 							builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
 								final List<CountDownEntity> countdowns = countdownProvider.countDownList;
