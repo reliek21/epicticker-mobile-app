@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/presentation/provider/count_down_provider.dart';
@@ -12,7 +11,17 @@ class DashboardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-		const Text noEvents = Text('No upcoming events');
+		final Container noEvents = Container(
+			margin: const EdgeInsets.only(top: 100.0),
+			child: Center(
+				child: Text(
+					'No upcoming events',
+					style: EpicTickerTextStyles.semiExtraHeading(
+						fontWeight: FontWeight.w700
+					)
+				)
+			),
+		);
 
 		final CountDownProvider countDownProvider = Provider.of<CountDownProvider>(context);
 		final String closestEvent = countDownProvider.getClosestEvent().name;

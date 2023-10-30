@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
-
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/presentation/routes/main_routes.dart';
 

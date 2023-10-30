@@ -9,23 +9,30 @@ import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.da
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
 
-class NewCountDownScreen extends StatefulWidget {
-  const NewCountDownScreen({super.key});
+class EditCountDownScreen extends StatefulWidget {
+	final CountDownEntity? currentCountdown;
+
+  const EditCountDownScreen({
+		super.key,
+		required this.currentCountdown
+	});
 
   @override
-  State<NewCountDownScreen> createState() => _NewCountDownScreenState();
+  State<EditCountDownScreen> createState() => _EditCountDownScreenState();
 }
 
-class _NewCountDownScreenState extends State<NewCountDownScreen> {
+class _EditCountDownScreenState extends State<EditCountDownScreen> {
   final TextEditingController _textNameController = TextEditingController();
   final TextEditingController _textFullDateController = TextEditingController();
 
-  @override
-  void dispose() {
-    super.dispose();
-    _textNameController.dispose();
-		_textFullDateController.dispose();
-  }
+
+	@override
+	void initState() {
+		super.initState();
+
+		_textNameController.text = widget.currentCountdown!.name;
+    _textFullDateController.text = '${widget.currentCountdown!.day}/${widget.currentCountdown!.month}/${widget.currentCountdown!.year}';
+	}
 
   Widget _body(BuildContext context) {
     return Container(
@@ -43,8 +50,21 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 						controller: _textFullDateController,
 					),
           const SizedBox(height: 40.0),
+					OutlineButtonWidget(
+            text: 'Delete',
+						outlineColor: EpicTickerColors.intensePink,
+            onPressed: () {
+							final String name = _textNameController.text;
+
+							Provider.of<CountDownProvider>(context, listen: false).removeCountDown(name);
+
+							_textNameController.clear();
+							Navigator.pushNamed(context, MainRoutes.home);
+						}
+          ),
+					const SizedBox(height: 8.0),
           OutlineButtonWidget(
-            text: 'Save',
+            text: 'Update Day',
             fillButton: true,
             onPressed: () {
               final String name = _textNameController.text;
@@ -64,7 +84,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 										day: day
 									);
 
-									Provider.of<CountDownProvider>(context, listen: false).addCountDown(countdown);
+									Provider.of<CountDownProvider>(context, listen: false).updateCountDown(countdown);
 								}
 
                 // clear inputs before to add
@@ -91,7 +111,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
       ),
       automaticallyImplyLeading: false,
       title: Text(
-        'Create a new day',
+        'Edit day',
         style: EpicTickerTextStyles.heading(
           color: EpicTickerColors.main,
           fontWeight: FontWeight.bold
