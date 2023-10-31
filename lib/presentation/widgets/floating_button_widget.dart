@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/presentation/routes/main_routes.dart';
+import 'package:epicticker/presentation/widgets/tooltip_widget.dart';
 
 class FloatingButtonWidget extends StatelessWidget {
 	const FloatingButtonWidget({super.key});
@@ -18,18 +19,21 @@ class FloatingButtonWidget extends StatelessWidget {
 			child: Row(
 				mainAxisAlignment: MainAxisAlignment.center,
 				children: <Widget>[
-					InkWell(
-						onTap: () => Navigator.pushNamed(context, MainRoutes.newCountDown),
-						child: Container(
-							width: 40.0,
-							height: 40.0,
-							decoration: BoxDecoration(
-								color: EpicTrackerColors.accent,
-								borderRadius: BorderRadius.circular(100.0)
-							),
-							child: const Icon(
-								BootstrapIcons.plus,
-								color: EpicTrackerColors.main,
+					ToolTipWidget(
+						message: 'Create a new event',
+						child: InkWell(
+							onTap: () => Navigator.pushNamed(context, MainRoutes.newCountDown),
+							child: Container(
+								width: 40.0,
+								height: 40.0,
+								decoration: BoxDecoration(
+									color: EpicTrackerColors.accent,
+									borderRadius: BorderRadius.circular(100.0)
+								),
+								child: const Icon(
+									BootstrapIcons.plus,
+									color: EpicTrackerColors.main,
+								),
 							),
 						),
 					),

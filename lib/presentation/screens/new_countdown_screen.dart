@@ -30,7 +30,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
       child: Column(
         children: <Widget>[
           CustomTextFormFieldWidget(
-            hintText: 'Name',
+            hintText: 'Event name',
             controller: _countDownState.textNameController,
           ),
           const SizedBox(height: 8.0),
@@ -40,7 +40,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 					),
           const SizedBox(height: 40.0),
           OutlineButtonWidget(
-            text: 'Save',
+            text: 'Save event',
             fillButton: true,
             onPressed: () => CrudCountdown.saveCountdown(
 							context,
@@ -56,7 +56,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget.appBar(context, 'Create a new day'),
+      appBar: AppBarWidget.appBar(context, 'Create a new event'),
       backgroundColor: EpicTrackerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );

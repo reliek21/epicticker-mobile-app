@@ -48,13 +48,13 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
 					),
           const SizedBox(height: 40.0),
 					OutlineButtonWidget(
-            text: 'Delete',
+            text: 'Delete event',
 						outlineColor: EpicTrackerColors.intensePink,
             onPressed: () => CrudCountdown.removeCountdown(context, widget.currentCountdown!)
           ),
 					const SizedBox(height: 8.0),
           OutlineButtonWidget(
-            text: 'Update Day',
+            text: 'Modify event',
             fillButton: true,
             onPressed: () => CrudCountdown.updateCountdown(
 							context,
@@ -71,7 +71,7 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 			backgroundColor: EpicTrackerColors.accent,
-      appBar: AppBarWidget.appBar(context, 'Edit day'),
+      appBar: AppBarWidget.appBar(context, 'Edit event'),
 			body: SafeArea(child: SingleChildScrollView(child: _body(context))),
 		);
 	}

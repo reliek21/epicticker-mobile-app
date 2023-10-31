@@ -15,7 +15,7 @@ class DashboardWidget extends StatelessWidget {
 			margin: const EdgeInsets.only(top: 100.0),
 			child: Center(
 				child: Text(
-					'No upcoming events',
+					'No events in the near future',
 					style: EpicTrackerTextStyles.semiExtraHeading(
 						fontWeight: FontWeight.w700
 					)
@@ -38,7 +38,7 @@ class DashboardWidget extends StatelessWidget {
         } else {
           final DateTime closestDate = snapshot.data as DateTime;
 
-          late String title = 'No upcoming events';
+          late String title = 'No events in the near future';
           late String subtitle = '';
 
           final DateTime now = DateTime.now();
@@ -53,7 +53,7 @@ class DashboardWidget extends StatelessWidget {
           }
 
           subtitle =
-              '${getWeekName(closestDate.weekday)},${closestDate.day} ${getMonthName(closestDate.month)}';
+              '${getWeekName(closestDate.weekday)}, ${closestDate.day} ${getMonthName(closestDate.month)}';
 
           return Container(
             margin: const EdgeInsets.only(top: 24.0, bottom: 34.0),

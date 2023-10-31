@@ -130,7 +130,7 @@ Future<void> loadCountDowns() async {
       }
     }
 
-    return closestEvent ?? const CountDownEntity(name: 'No upcoming events', year: 0, month: 0, day: 0);
+    return closestEvent ?? const CountDownEntity(name: 'No events in the near future', year: 0, month: 0, day: 0);
   }
 
   List<CountDownEntity> getRecentCountDownsByDays(int count) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:nested/nested.dart';
 import 'package:provider/provider.dart';
-
 import 'package:epicticker/config/theme/app_theme.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/routes/main_routes.dart';
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CountDownProvider>(create: (_) => CountDownProvider())
       ],
       child: MaterialApp(
-        title: 'EpicTicker',
+        title: 'EpicTracker',
         routes: getRoutes(),
         theme: AppTheme.getTheme(),
         initialRoute: MainRoutes.home,

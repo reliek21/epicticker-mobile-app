@@ -72,7 +72,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> with RestorationMix
 	 Widget build(BuildContext context) {
 		return CustomTextFormFieldWidget(
 			initialValue: widget.initialValue,
-			hintText: 'Select the date',
+			hintText: 'Choose the date',
 			controller: widget.controller,
 			onTap: () => _restorableDatePickerRouteFuture.present(),
 			keyboardType: TextInputType.datetime,
