@@ -47,17 +47,16 @@ Future<void> loadCountDowns() async {
 	Future<void> updateCountDown(CountDownEntity updatedCountDown) async {
 		try {
 			// Search index of the event
-			final int index = _countDownList.indexWhere((CountDownEntity countDown) => countDown.name == updatedCountDown.name);
+			final int index = _countDownList.indexWhere((CountDownEntity countDown) => countDown.id == updatedCountDown.id);
 
 			// reemplace the event updated
-			if (index != -1) {
-				_countDownList[index] = updatedCountDown;
+			if (index != -1) _countDownList[index] = updatedCountDown;
 
-				// save in the list of SharedPreferences
-				final SharedPreferences prefs = await SharedPreferences.getInstance();
-				await _updateSharePreferences(prefs);
-				notifyListeners();
-			}
+			// save in the list of SharedPreferences
+			final SharedPreferences prefs = await SharedPreferences.getInstance();
+			await _updateSharePreferences(prefs);
+
+			notifyListeners();
 		} catch (e) {
 		  if (kDebugMode) {
         print('Error to update a countdown $e');
@@ -65,21 +64,20 @@ Future<void> loadCountDowns() async {
 		}
 	}
 
-	Future<void> removeCountDown(String name) async {
+	Future<void> removeCountDown(CountDownEntity removeCountdown) async {
 		try {
       // Search index of the event
       final int index =
-          _countDownList.indexWhere((CountDownEntity countDown) => countDown.name == name);
+          _countDownList.indexWhere((CountDownEntity countDown) => countDown.id == removeCountdown.id);
 
 			// Delete the event of the list
-      if (index != -1) {
-        _countDownList.removeAt(index);
+      if (index != -1) _countDownList.removeAt(index);
 
-        // save in the list of SharedPreferences
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        await _updateSharePreferences(prefs);
-        notifyListeners();
-      }
+      // save in the list of SharedPreferences
+			final SharedPreferences prefs = await SharedPreferences.getInstance();
+			await _updateSharePreferences(prefs);
+
+			notifyListeners();
     } catch (e) {
       if (kDebugMode) {
         print('Error to delete a countdown $e');

@@ -20,10 +20,10 @@ class CrudCountdown {
 
 	static void _clearAndNavigate(
 		BuildContext context,
-		TextEditingController nameController,
+		TextEditingController? nameController,
 		TextEditingController? fullDateController
 	) {
-		nameController.clear();
+		nameController?.clear();
 		fullDateController?.clear();
 		Navigator.pushNamed(context, MainRoutes.home);
 	}
@@ -39,6 +39,7 @@ class CrudCountdown {
 		if (_isValidDate(fullDate) && name.isNotEmpty) {
 			final List<String> dateParts = fullDate.split('/');
       final CountDownEntity countdown = CountDownEntity(
+				id: '$name-$fullDate',
         name: name,
         year: int.tryParse(dateParts[2]) ?? 0,
         month: int.tryParse(dateParts[1]) ?? 0,
@@ -86,10 +87,9 @@ class CrudCountdown {
 
   static void removeCountdown(
     BuildContext context,
-    TextEditingController nameController,
+    CountDownEntity countDownEntity,
   ) {
-    final String name = nameController.text;
-    Provider.of<CountDownProvider>(context, listen: false).removeCountDown(name);
-		_clearAndNavigate(context, nameController, null);
+    Provider.of<CountDownProvider>(context, listen: false).removeCountDown(countDownEntity);
+		_clearAndNavigate(context, null, null);
   }
 }

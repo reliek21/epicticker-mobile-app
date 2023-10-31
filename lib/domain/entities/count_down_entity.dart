@@ -1,10 +1,12 @@
 class CountDownEntity {
+	final String? id;
   final String name;
   final int year;
   final int month;
   final int day;
 
   const CountDownEntity({
+		this.id,
     required this.name,
     required this.year,
     required this.month,

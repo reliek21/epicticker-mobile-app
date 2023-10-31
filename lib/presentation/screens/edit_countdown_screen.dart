@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
-import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/providers/countdown/count_down_state.dart';
+import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
@@ -21,7 +21,7 @@ class EditCountDownScreen extends StatefulWidget {
 }
 
 class _EditCountDownScreenState extends State<EditCountDownScreen> {
-	late final CountDownState _countDownState = CountDownState();
+	final CountDownState _countDownState = CountDownState();
 
 	@override
 	void initState() {
@@ -50,7 +50,7 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
 					OutlineButtonWidget(
             text: 'Delete',
 						outlineColor: EpicTrackerColors.intensePink,
-            onPressed: () => CrudCountdown.removeCountdown(context, _countDownState.textNameController)
+            onPressed: () => CrudCountdown.removeCountdown(context, widget.currentCountdown!)
           ),
 					const SizedBox(height: 8.0),
           OutlineButtonWidget(
@@ -67,35 +67,12 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
     );
   }
 
-  AppBar _appBar(BuildContext context)  {
-    return AppBar(
-      leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: const Icon(
-          Icons.arrow_back,
-          color: EpicTrackerColors.main,
-        ),
-      ),
-      automaticallyImplyLeading: false,
-      title: Text(
-        'Edit day',
-        style: EpicTrackerTextStyles.heading(
-          color: EpicTrackerColors.main,
-          fontWeight: FontWeight.bold
-        ),
-      ),
-      centerTitle: true,
-      backgroundColor: EpicTrackerColors.accent,
-      elevation: 0.0,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(context),
-      backgroundColor: EpicTrackerColors.accent,
-      body: SafeArea(child: SingleChildScrollView(child: _body(context))),
-    );
-  }
+			backgroundColor: EpicTrackerColors.accent,
+      appBar: AppBarWidget.appBar(context, 'Edit day'),
+			body: SafeArea(child: SingleChildScrollView(child: _body(context))),
+		);
+	}
 }

@@ -15,7 +15,7 @@ class NewCountDownScreen extends StatefulWidget {
 }
 
 class _NewCountDownScreenState extends State<NewCountDownScreen> {
-	final CountDownState _countDownState = CountDownState as CountDownState;
+	final CountDownState _countDownState = CountDownState();
 
   @override
   void dispose() {
@@ -56,7 +56,7 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: 'Create a new day') as PreferredSizeWidget,
+      appBar: AppBarWidget.appBar(context, 'Create a new day'),
       backgroundColor: EpicTrackerColors.accent,
       body: SafeArea(child: SingleChildScrollView(child: _body(context))),
     );

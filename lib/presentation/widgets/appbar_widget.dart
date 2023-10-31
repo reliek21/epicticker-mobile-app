@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 
-class AppBarWidget extends StatelessWidget {
-	final String title;
-	const AppBarWidget({super.key, required this.title});
+class AppBarWidget {
+	AppBarWidget._();
 
-	@override
-	Widget build(BuildContext context) {
+	static PreferredSizeWidget? appBar(BuildContext context, String title) {
 		return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.of(context).pop(),
