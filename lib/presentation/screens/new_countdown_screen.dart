@@ -5,6 +5,7 @@ import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
+import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
 import 'package:epicticker/utils/crud_countdown_util.dart';
 
 class NewCountDownScreen extends StatefulWidget {
@@ -42,11 +43,23 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
           OutlineButtonWidget(
             text: 'Save event',
             fillButton: true,
-            onPressed: () => CrudCountdown.saveCountdown(
-							context,
-							_countDownState.textNameController,
-							_countDownState.fullDateController
-						)
+            onPressed: () => <void>{
+							if (
+								_countDownState.textNameController.text.isEmpty
+								||_countDownState.fullDateController.text.isEmpty
+							) <void>{
+								ReusableSnackBar.show(
+									context: context,
+									message: 'Please enter name and date.'
+								)
+							} else <void>{
+								CrudCountdown.saveCountdown(
+                  context,
+									_countDownState.textNameController,
+									_countDownState.fullDateController
+								)
+							}
+						}
           )
         ],
       ),

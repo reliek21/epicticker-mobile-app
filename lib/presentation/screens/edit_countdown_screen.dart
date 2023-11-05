@@ -6,6 +6,8 @@ import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
 import 'package:epicticker/presentation/widgets/outline_button_widget.dart';
+import 'package:epicticker/presentation/widgets/show_dialog.dart';
+import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
 import 'package:epicticker/utils/crud_countdown_util.dart';
 
 class EditCountDownScreen extends StatefulWidget {
@@ -50,17 +52,32 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
 					OutlineButtonWidget(
             text: 'Delete event',
 						outlineColor: EpicTrackerColors.intensePink,
-            onPressed: () => CrudCountdown.removeCountdown(context, widget.currentCountdown!)
+            onPressed: () => ShowDialogWidget(
+							context: context,
+							onPressed: () => CrudCountdown.removeCountdown(context, widget.currentCountdown!)
+						).deleteDialog()
           ),
 					const SizedBox(height: 8.0),
           OutlineButtonWidget(
             text: 'Modify event',
             fillButton: true,
-            onPressed: () => CrudCountdown.updateCountdown(
-							context,
-							_countDownState.textNameController,
-							_countDownState.fullDateController
-						)
+            onPressed: () => <Set<void>>{
+							if (
+								widget.currentCountdown!.name == _countDownState.textNameController.text
+								|| widget.currentCountdown!.day.toString() == _countDownState.fullDateController.text
+							) <void>{
+								ReusableSnackBar.show(
+									context: context,
+									message: 'You haven\'t modified the event'
+								)
+							} else <void>{
+								CrudCountdown.updateCountdown(
+									context,
+									_countDownState.textNameController,
+									_countDownState.fullDateController
+								)
+							}
+						}
           )
         ],
       ),
