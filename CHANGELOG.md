@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Added
 
+- Validations for the CRUD | [#24](https://github.com/reliek21/epicticker-mobile-app/pull/24) | [reliek21](https://github.com/reliek21)
 - Dynamic Next Event Added | [#11](https://github.com/reliek21/epicticker-mobile-app/pull/11) | [reliek21](https://github.com/reliek21)
 - New Design Added | [#10](https://github.com/reliek21/epicticker-mobile-app/pull/10) | [reliek21](https://github.com/reliek21)
 - Actions of Github added | [#4](https://github.com/reliek21/epicticker-mobile-app/pull/4) | [reliek21](https://github.com/reliek21)

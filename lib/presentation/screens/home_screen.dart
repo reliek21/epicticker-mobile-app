@@ -81,7 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: EpicTrackerColors.accent,
-      body: SafeArea(child: SingleChildScrollView(child: bodyContainer(context))),
+      body: SafeArea(
+				child: ScrollConfiguration(
+					behavior: const ScrollBehavior().copyWith(overscroll: true),
+					child: SingleChildScrollView(child: bodyContainer(context))
+				)
+			),
 			floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 			floatingActionButton: const FloatingButtonWidget()
     );
