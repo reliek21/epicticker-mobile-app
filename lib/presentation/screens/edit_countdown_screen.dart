@@ -70,6 +70,15 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
 									context: context,
 									message: 'You haven\'t modified the event'
 								)
+							} else if (
+								!CrudCountdown.isDateGreaterThanOrEqualToCurrent(
+									_countDownState.fullDateController.text
+								)
+							) <void>{
+								ReusableSnackBar.show(
+									context: context,
+									message: 'The date must be greater than or equal to the current date.'
+								)
 							} else <void>{
 								CrudCountdown.updateCountdown(
 									context,

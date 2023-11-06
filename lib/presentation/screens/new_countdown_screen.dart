@@ -52,6 +52,15 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 									context: context,
 									message: 'Please enter name and date.'
 								)
+							} else if (
+									!CrudCountdown.isDateGreaterThanOrEqualToCurrent(
+										_countDownState.fullDateController.text
+									)
+								) <void>{
+      						ReusableSnackBar.show(
+										context: context,
+										message: 'The date must be greater than or equal to the current date.'
+									)
 							} else <void>{
 								CrudCountdown.saveCountdown(
                   context,

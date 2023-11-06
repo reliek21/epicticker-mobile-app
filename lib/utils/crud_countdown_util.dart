@@ -23,6 +23,23 @@ class CrudCountdown {
     return false;
 	}
 
+	static bool isDateGreaterThanOrEqualToCurrent(String fullDate) {
+    if (!_isValidDate(fullDate)) {
+      return false;
+    }
+
+    final List<String> dateParts = fullDate.split('/');
+    final DateTime selectedDate = DateTime(
+      int.parse(dateParts[2]),
+      int.parse(dateParts[1]),
+      int.parse(dateParts[0]),
+    );
+    final DateTime currentDate = DateTime.now();
+
+    return selectedDate.isAtSameMomentAs(currentDate) || selectedDate.isAfter(currentDate);
+  }
+
+
 	static void _clearAndNavigate(
 		BuildContext context,
 		TextEditingController? nameController,
