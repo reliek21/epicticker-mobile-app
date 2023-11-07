@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
+import 'package:epicticker/presentation/routes/main_routes.dart';
+import 'package:epicticker/presentation/widgets/primary_button_widget.dart';
 import 'package:epicticker/utils/get_month_name.dart';
 import 'package:epicticker/utils/get_week_name.dart';
 
@@ -11,18 +13,6 @@ class DashboardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-		final Container noEvents = Container(
-			margin: const EdgeInsets.only(top: 100.0),
-			child: Center(
-				child: Text(
-					'No events in the near future',
-					style: EpicTrackerTextStyles.semiExtraHeading(
-						fontWeight: FontWeight.w700
-					)
-				)
-			),
-		);
-
 		final CountDownProvider countDownProvider = Provider.of<CountDownProvider>(context);
 		final String closestEvent = countDownProvider.getClosestEvent().name;
 
@@ -34,7 +24,15 @@ class DashboardWidget extends StatelessWidget {
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else if (!snapshot.hasData || snapshot.data == null) {
-          return noEvents;
+          return Container(
+						margin: const EdgeInsets.only(top: 50.0),
+						child: Center(
+							child: PrimaryButtonWidget(
+								text: 'Create new event',
+								onPressed: () => ScreenRoute.screenView(context, MainRoutes.newCountDown)
+							),
+						),
+					);
         } else {
           final DateTime closestDate = snapshot.data as DateTime;
 
@@ -56,27 +54,38 @@ class DashboardWidget extends StatelessWidget {
               '${getWeekName(closestDate.weekday)}, ${closestDate.day} ${getMonthName(closestDate.month)}';
 
           return Container(
+						width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.only(top: 24.0, bottom: 34.0),
+						padding: const EdgeInsets.symmetric(vertical: 20.0),
+						decoration: BoxDecoration(
+							border: Border.all(
+								color: EpicTrackerColors.main,
+								width: 2.0
+							),
+							borderRadius: BorderRadius.circular(20.0)
+						),
             child: Column(
               children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(top: 24.0),
-                  child: Text(closestEvent, style: EpicTrackerTextStyles.heading(
+								Text(title, style: EpicTrackerTextStyles.semiExtraHeading(
+										color: EpicTrackerColors.main,
+										fontWeight: FontWeight.w900
+									),
+								),
+                Text(closestEvent, style: EpicTrackerTextStyles.heading(
 											fontWeight: FontWeight.w700,
 											color: EpicTrackerColors.accentBlack
 										),
-                  ),
                 ),
                 Text(subtitle, style: EpicTrackerTextStyles.title(
 										color: EpicTrackerColors.accentBlack,
 										fontWeight: FontWeight.w700
 									),
                 ),
-                Text(title, style: EpicTrackerTextStyles.extraHeading(
-										color: EpicTrackerColors.main,
-										fontWeight: FontWeight.w900
-									),
-                ),
+								const SizedBox(height: 14.0),
+								 PrimaryButtonWidget(
+									text: 'Create new event',
+									onPressed: () => ScreenRoute.screenView(context, MainRoutes.newCountDown)
+								)
               ],
             ),
           );

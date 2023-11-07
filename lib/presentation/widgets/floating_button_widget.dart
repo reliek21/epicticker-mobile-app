@@ -22,7 +22,7 @@ class FloatingButtonWidget extends StatelessWidget {
 					ToolTipWidget(
 						message: 'Create a new event',
 						child: InkWell(
-							onTap: () => Navigator.pushNamed(context, MainRoutes.newCountDown),
+							onTap: () => ScreenRoute.screenView(context, MainRoutes.newCountDown),
 							child: Container(
 								width: 40.0,
 								height: 40.0,

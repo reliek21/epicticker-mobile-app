@@ -63,15 +63,7 @@ class _EditCountDownScreenState extends State<EditCountDownScreen> {
             fillButton: true,
             onPressed: () => <Set<void>>{
 							if (
-								widget.currentCountdown!.name == _countDownState.textNameController.text
-								|| widget.currentCountdown!.day.toString() == _countDownState.fullDateController.text
-							) <void>{
-								ReusableSnackBar.show(
-									context: context,
-									message: 'You haven\'t modified the event'
-								)
-							} else if (
-								!CrudCountdown.isDateGreaterThanOrEqualToCurrent(
+								CrudCountdown.isDateGreaterThanOrEqualToCurrent(
 									_countDownState.fullDateController.text
 								)
 							) <void>{

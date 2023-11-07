@@ -47,7 +47,7 @@ class CrudCountdown {
 	) {
 		nameController?.clear();
 		fullDateController?.clear();
-		Navigator.pushNamed(context, MainRoutes.home);
+		ScreenRoute.screenView(context, MainRoutes.home);
 	}
 
 	static void saveCountdown(
