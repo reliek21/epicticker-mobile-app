@@ -7,7 +7,6 @@ import 'package:epicticker/presentation/screens/edit_countdown_screen.dart';
 import 'package:epicticker/presentation/widgets/animation_limited_widget.dart';
 import 'package:epicticker/presentation/widgets/dashboard_widget.dart';
 import 'package:epicticker/presentation/widgets/day_left_card_widget.dart';
-import 'package:epicticker/presentation/widgets/floating_button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,47 +29,44 @@ class _HomeScreenState extends State<HomeScreen> {
     	child: Column(
     		children: <Widget>[
     			const DashboardWidget(),
-    			Container(
-    				margin: const EdgeInsets.only(top: 24.0),
-    				child: Consumer<CountDownProvider>(
-    					builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
-    						final List<CountDownEntity> countdowns = countdownProvider.countDownList;
+    			Consumer<CountDownProvider>(
+    				builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
+    					final List<CountDownEntity> countdowns = countdownProvider.countDownList;
 
-    						if (countdowns.isEmpty) const Center(child: Text('No countdowns yet.'));
+    					if (countdowns.isEmpty) const Center(child: Text('No countdowns yet.'));
 
-    						return Container(
-    							margin: const EdgeInsets.only(bottom: 100.0),
-    							child: Column(
-    								children: countdowns.asMap().entries.map((MapEntry<int, CountDownEntity> entry) {
-    									final int index = entry.key;
-    									final CountDownEntity countdown = entry.value;
+    					return Container(
+    						margin: const EdgeInsets.only(bottom: 100.0),
+    						child: Column(
+    							children: countdowns.asMap().entries.map((MapEntry<int, CountDownEntity> entry) {
+    								final int index = entry.key;
+    								final CountDownEntity countdown = entry.value;
 
-    									return AnimationLimiterWidget(
-    										position: index,
-    										child: InkWell(
-    											onTap: () {
-    												CountDownEntity currentCountdown = countdown;
+    								return AnimationLimiterWidget(
+    									position: index,
+    									child: InkWell(
+    										onTap: () {
+    											CountDownEntity currentCountdown = countdown;
 
-    												Navigator.push(
-    													context,
-    													MaterialPageRoute<CountDownEntity>(
-    														builder: (_) => EditCountDownScreen(currentCountdown: currentCountdown)
-    													)
-    												);
-    											},
-    											child: DayLeftCardWidget(
-    												title: countdown.name,
-    												year: countdown.year,
-    												month: countdown.month,
-    												day: countdown.day
-    											)
-    										),
-    									);
-    								}).toList(),
-    							),
-    						);
-    					}
-    				),
+    											Navigator.push(
+    												context,
+    												MaterialPageRoute<CountDownEntity>(
+    													builder: (_) => EditCountDownScreen(currentCountdown: currentCountdown)
+    												)
+    											);
+    										},
+    										child: DayLeftCardWidget(
+    											title: countdown.name,
+    											year: countdown.year,
+    											month: countdown.month,
+    											day: countdown.day
+    										)
+    									),
+    								);
+    							}).toList(),
+    						),
+    					);
+    				}
     			),
     		],
     	),
@@ -87,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
 					child: SingleChildScrollView(child: bodyContainer(context))
 				)
 			),
-			floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-			floatingActionButton: const FloatingButtonWidget()
+			// floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+			// floatingActionButton: const FloatingButtonWidget()
     );
   }
 }

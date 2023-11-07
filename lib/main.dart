@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'EpicTracker',
-        routes: getRoutes(),
+        routes: mainRoutes(),
         theme: AppTheme.getTheme(),
         initialRoute: MainRoutes.home,
         debugShowCheckedModeBanner: false,

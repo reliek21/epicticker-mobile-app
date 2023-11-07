@@ -21,7 +21,7 @@ class CountDownProvider extends ChangeNotifier {
 		}
   }
 
-Future<void> loadCountDowns() async {
+	Future<void> loadCountDowns() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? jsonString = prefs.getString('countdownList');
 
@@ -133,7 +133,7 @@ Future<void> loadCountDowns() async {
     return closestEvent ?? const CountDownEntity(name: 'No events in the near future', year: 0, month: 0, day: 0);
   }
 
-  List<CountDownEntity> getRecentCountDownsByDays(int count) {
+	List<CountDownEntity> getRecentCountDownsByDays() {
     final List<CountDownEntity> cloneList = List<CountDownEntity>.from(_countDownList);
 
     cloneList.sort((CountDownEntity a, CountDownEntity b) {
@@ -146,6 +146,7 @@ Future<void> loadCountDowns() async {
       return durationA.compareTo(durationB);
     });
 
-    return _countDownList.take(count).toList();
+    return cloneList;
   }
+
 }
