@@ -24,3 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Deleted
 
+### Dependencies
+
+- build(deps): bump flutter_lints from 3.0.0 to 3.0.1 | [#28](https://github.com/reliek21/epicticker-mobile-app/pull/28) | [reliek21](https://github.com/reliek21)
+
