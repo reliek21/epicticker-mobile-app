@@ -30,6 +30,7 @@ Attach some screenshots of the application. For example:
 3. Make the necessary changes and commit: `git commit -am 'feat: add new feature'` using [**conventional commits**](https://www.conventionalcommits.org/en/v1.0.0/)
 4. Push your changes: `git push origin my-new-feature`
 5. Create a pull request to the repository
+6. Create a release `flutter build apk --release`
 
 
 ## Tech Stack
