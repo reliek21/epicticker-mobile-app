@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="epicticker_flutter_app"
+        android:label="Epic Tracker"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

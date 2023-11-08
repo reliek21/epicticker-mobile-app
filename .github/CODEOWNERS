@@ -1,0 +1,17 @@
+# @reliek21 will be requested for review when someone opens a pull request.
+* @reliek21
+
+
+# This will request only @dart-owner and not the global
+# owner(s) for a review if a .dart file.
+#*.dart    @dart-owner
+
+# This config gonna request @mr-x approve on any change
+# over specified directory or subdirectories
+#/target/directory/ @mr-x
+
+# This config gonna request epicticker-mobile-app
+# (Not sure if gonna allow pr merge with one
+# approve - guess so, or all approves) on any
+# change over specified directory or subdirectories
+#/target/directory/ epicticker-mobile-app/**
