@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CountDownProvider>(create: (_) => CountDownProvider())
       ],
       child: MaterialApp(
-        title: 'EpicTracker',
+        title: 'Epic Tracker',
         routes: mainRoutes(),
         theme: AppTheme.getTheme(),
         initialRoute: MainRoutes.home,
