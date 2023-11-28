@@ -130,7 +130,7 @@ class CountDownProvider extends ChangeNotifier {
       }
     }
 
-    return closestEvent ?? const CountDownEntity(name: 'No events in the near future', year: 0, month: 0, day: 0);
+    return closestEvent ?? CountDownEntity(name: 'No events in the near future', year: 0, month: 0, day: 0);
   }
 
 	List<CountDownEntity> getRecentCountDownsByDays() {

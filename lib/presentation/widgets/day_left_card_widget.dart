@@ -41,7 +41,7 @@ class DayLeftCardWidget extends StatelessWidget {
         children: <Widget>[
           Text(title, style: EpicTrackerTextStyles.heading(
               color: EpicTrackerColors.main,
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.w900
             ),
           ),
 					Container(
@@ -66,8 +66,8 @@ class DayLeftCardWidget extends StatelessWidget {
 								),
 
 								DayLeftWidget(
-									days: leftDays.days,text:
-									leftDays.days > 1 ? 'Days' : 'Day'
+									days: leftDays.days,
+									text: leftDays.days > 1 ? 'Days' : 'Day'
 								),
 						  ],
 						),
