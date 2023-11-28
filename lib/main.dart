@@ -5,9 +5,7 @@ import 'package:epicticker/config/theme/app_theme.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/routes/main_routes.dart';
 
-void main() {
-	runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

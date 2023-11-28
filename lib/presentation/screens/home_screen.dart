@@ -1,3 +1,4 @@
+import 'package:epicticker/utils/format_create_date.dart';
 import 'package:epicticker/utils/get_month_name.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
     										},
     										child: DayLeftCardNewWidget(
 													name: countdown.name,
-													createAt: 'Created at 14 Feb, 2023',
+													createAt: 'Created at ${formatCreatedAt(countdown.createdAt.toString())}',
 													targetDate: 'Target for ${countdown.day} ${SelectMonth.getShortMonthName(countdown.month)}, ${countdown.year}',
 												)
     									),

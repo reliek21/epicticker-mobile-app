@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:epicticker/utils/convert_string_filter_chip.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
@@ -34,6 +35,8 @@ class CountDownProvider extends ChangeNotifier {
 					year: item['year'],
 					month: item['month'],
 					day: item['day'],
+					filterType:  convertStringToFilterChipType(item['filterType']),
+					createdAt: item['createdAt']
 				)).toList();
 
       countdowns.sort((CountDownEntity a, CountDownEntity b) => a.eventDate.compareTo(b.eventDate));
@@ -130,7 +133,12 @@ class CountDownProvider extends ChangeNotifier {
       }
     }
 
-    return closestEvent ?? CountDownEntity(name: 'No events in the near future', year: 0, month: 0, day: 0);
+    return closestEvent ?? CountDownEntity(
+			name: 'No events in the near future',
+			year: 0,
+			month: 0,
+			day: 0
+		);
   }
 
 	List<CountDownEntity> getRecentCountDownsByDays() {
