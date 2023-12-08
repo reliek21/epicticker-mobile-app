@@ -11,7 +11,7 @@ import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
 import 'package:epicticker/utils/crud_countdown_util.dart';
 
 class EditCountDownScreen extends StatefulWidget {
-	final CountDownEntity? currentCountdown;
+	final CountdownEntity? currentCountdown;
 
   const EditCountDownScreen({
 		super.key,

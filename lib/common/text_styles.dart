@@ -3,9 +3,7 @@ import 'package:epicticker/common/color.dart';
 
 const String fontFamily = 'Nunito';
 
-class EpicTrackerTextStyles {
-  EpicTrackerTextStyles._();
-
+abstract class EpicTrackerTextStyles {
   static TextStyle extraHeading({
     double? height,
     bool underline = false,

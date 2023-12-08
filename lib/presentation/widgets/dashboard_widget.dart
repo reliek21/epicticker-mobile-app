@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
 import 'package:epicticker/presentation/widgets/primary_button_widget.dart';
 import 'package:epicticker/utils/get_month_name.dart';
 import 'package:epicticker/utils/get_week_name.dart';

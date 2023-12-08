@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EpicTrackerColors {
-  EpicTrackerColors._();
-
+abstract class EpicTrackerColors {
   static const Color main = Color(0xff222831);
   static const Color secondary = Color(0xffE16162);
   static const Color accent = Color(0xffEEEEEE);

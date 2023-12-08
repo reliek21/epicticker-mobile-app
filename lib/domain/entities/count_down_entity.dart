@@ -1,4 +1,4 @@
-class CountDownEntity {
+class CountdownEntity {
   final String? id;
   final String name;
   final int year;
@@ -7,7 +7,7 @@ class CountDownEntity {
   final String? createdAt;
   final FilterChipType? filterType;
 
-	CountDownEntity({
+  CountdownEntity({
 		this.id,
 		required this.name,
 		required this.year,
@@ -16,8 +16,6 @@ class CountDownEntity {
 		this.createdAt,
 		this.filterType,
 	}) : assert(year >= 0 && month >= 0 && month <= 12 && day >= 0 && day <= 31);
-
-
 
 	DateTime get eventDate => DateTime(year, month, day);
 

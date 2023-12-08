@@ -5,14 +5,18 @@ import 'package:flutter/material.dart';
 
 class DayLeftCardNewWidget extends StatelessWidget {
 	final String name;
-	final String createAt;
+	final String createdAt;
+	final String daysLeft;
 	final String targetDate;
+	final double completion;
 
 	const DayLeftCardNewWidget({
 		super.key,
 		required this.name,
-		required this.createAt,
-		required this.targetDate
+		required this.createdAt,
+		required this.daysLeft,
+		required this.targetDate,
+		required this.completion
 	});
 
 	@override
@@ -32,6 +36,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 				borderRadius: BorderRadius.circular(20.0)
 			),
 			child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
 				children: <Widget>[
 					Row(
 						crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,6 +59,24 @@ class DayLeftCardNewWidget extends StatelessWidget {
 							)
 						],
 					),
+					RichText(
+						text: TextSpan(
+							text: 'Days left: ',
+							style: EpicTrackerTextStyles.title(
+								fontWeight: FontWeight.w900,
+								color: EpicTrackerColors.main
+							),
+							children: <TextSpan>[
+								TextSpan(
+									text: daysLeft,
+									style: EpicTrackerTextStyles.title(
+										fontWeight: FontWeight.w700,
+										color: EpicTrackerColors.main.withOpacity(0.5)
+									),
+								),
+							],
+						),
+					),
 					Container(
 						margin: const EdgeInsets.only(
 							top: 7.0,
@@ -63,19 +86,26 @@ class DayLeftCardNewWidget extends StatelessWidget {
 							mainAxisAlignment: MainAxisAlignment.spaceBetween,
 							children: <Widget>[
 								Text(
-									createAt,
-									style: EpicTrackerTextStyles.caption(
-										fontWeight: FontWeight.w900,
+									createdAt,
+									style: EpicTrackerTextStyles.title(
 										color: EpicTrackerColors.main.withOpacity(0.5)
 									),
 								),
+							],
+						),
+					),
+					Container(
+						margin: const EdgeInsets.only(bottom: 4.0),
+						child: Row(
+							mainAxisAlignment: MainAxisAlignment.center,
+							children: <Widget>[
 								Text(
 									targetDate,
-									style: EpicTrackerTextStyles.caption(
+									style: EpicTrackerTextStyles.title(
 										fontWeight: FontWeight.w900,
 										color: EpicTrackerColors.secondary
 									),
-								)
+								),
 							],
 						),
 					),
@@ -90,7 +120,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 								),
 							),
 							Container(
-								width: MediaQuery.of(context).size.width / 4,
+								width: MediaQuery.of(context).size.width * completion,
 								height: 12.0,
 								decoration: BoxDecoration(
 									color: EpicTrackerColors.secondary,
@@ -105,7 +135,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 							Container(
 								margin: const EdgeInsets.only(top: 6.0),
 								child: Text(
-									'50%',
+									'${(completion * 100).toInt()}%',
 									style: EpicTrackerTextStyles.caption(fontWeight: FontWeight.w900),
 								),
 							)
