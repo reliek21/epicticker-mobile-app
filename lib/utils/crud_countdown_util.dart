@@ -7,9 +7,7 @@ import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
 
-class CrudCountdown {
-	CrudCountdown._();
-
+abstract class CrudCountdown {
 	static bool _isValidDate(String fullDate) {
 		final List<String> dateParts = fullDate.split('/');
 

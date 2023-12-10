@@ -1,6 +1,7 @@
+import 'package:epicticker/utils/get_month_name.dart';
+import 'package:epicticker/utils/time_remaining_format.dart';
 import 'package:flutter/material.dart';
 import 'package:epicticker/utils/difference_date_util.dart';
-import 'package:epicticker/utils/format_create_date.dart';
 import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
@@ -9,7 +10,7 @@ import 'package:epicticker/presentation/screens/edit_countdown_screen.dart';
 import 'package:epicticker/presentation/widgets/animation_limited_widget.dart';
 import 'package:epicticker/presentation/widgets/chip_filter_widget.dart';
 import 'package:epicticker/presentation/widgets/dashboard_widget.dart';
-import 'package:epicticker/presentation/widgets/day_left_card_new_widget.dart';
+import 'package:epicticker/presentation/widgets/day_left_card/day_left_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -88,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
     										onTap: () {
     											CountdownEntity currentCountdown = countdown;
 
+													// TODO: change this for go router
     											Navigator.push(
     												context,
     												MaterialPageRoute<CountdownEntity>(
@@ -95,11 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
     												)
     											);
     										},
-    										child: DayLeftCardNewWidget(
-													name: countdown.name,
-													daysLeft: '${difference.years} years, ${difference.months} months, ${difference.days} days',
-													createdAt: 'Target Date: ${formatCreatedAt(countdown.createdAt.toString())}',
-													// targetDate: 'Target Date${countdown.day} ${SelectMonth.getShortMonthName(countdown.month)}, ${countdown.year}',
+    										child: DayLeftCardWidget(
+													// TODO: change this for title
+													title: countdown.name,
+													daysLeft: timeRemainingFormat(difference.years, difference.months, difference.days),
+													targetDate: '${countdown.day} ${SelectMonth.getCompletedMonthName(countdown.month)}, ${countdown.year}',
 													completion: completionPercentage,
 												)
     									),
