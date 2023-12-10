@@ -1,6 +1,4 @@
-class SelectMonth {
-	SelectMonth._();
-
+abstract class SelectMonth {
 	static String getCompletedMonthName(int month) {
     final List<String> months = <String>[
       'January',
@@ -38,4 +36,17 @@ class SelectMonth {
 
     return months[month - 1];
 	}
+
+	static String getWeekName(int day) {
+    final List<String> daysOfWeek = <String>[
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ];
+    return daysOfWeek[day - 1];
+  }
 }

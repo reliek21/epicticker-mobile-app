@@ -8,7 +8,6 @@ import 'package:epicticker/common/text_styles.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/primary_button_widget.dart';
 import 'package:epicticker/utils/get_month_name.dart';
-import 'package:epicticker/utils/get_week_name.dart';
 
 class DashboardWidget extends StatelessWidget {
   const DashboardWidget({super.key});
@@ -53,7 +52,7 @@ class DashboardWidget extends StatelessWidget {
           }
 
           subtitle =
-              '${getWeekName(closestDate.weekday)}, ${closestDate.day} ${SelectMonth.getCompletedMonthName(closestDate.month)}';
+              '${SelectMonth.getWeekName(closestDate.weekday)}, ${closestDate.day} ${SelectMonth.getCompletedMonthName(closestDate.month)}';
 
           return Container(
 						width: MediaQuery.of(context).size.width,
