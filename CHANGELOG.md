@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ### Updated
 
 ### Refactor
+- New Design of the dashboard added | [#59](https://github.com/reliek21/epicticker-mobile-app/pull/59) | [reliek21](https://github.com/reliek21)
 - Refactor of code in the app | [#15](https://github.com/reliek21/epicticker-mobile-app/pull/15) | [reliek21](https://github.com/reliek21)
 - Refactor of components of Dashboard and utils | [#11](https://github.com/reliek21/epicticker-mobile-app/pull/11) | [reliek21](https://github.com/reliek21)
 - Linter anotation added | [#4](https://github.com/reliek21/epicticker-mobile-app/pull/4) | [reliek21](https://github.com/reliek21)
