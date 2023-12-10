@@ -18,5 +18,5 @@ DateDifference calculateDateDifference(int year, int month, int day) {
   final int months = remainingDays ~/ 30;
   final int days = remainingDays % 30;
 
-  return DateDifference(years, months, days);
+  return DateDifference(years, months, days + 1);
 }

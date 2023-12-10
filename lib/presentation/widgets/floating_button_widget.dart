@@ -1,8 +1,9 @@
+import 'package:epicticker/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:epicticker/common/color.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
 import 'package:epicticker/presentation/widgets/tooltip_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class FloatingButtonWidget extends StatelessWidget {
 	const FloatingButtonWidget({super.key});
@@ -22,7 +23,7 @@ class FloatingButtonWidget extends StatelessWidget {
 					ToolTipWidget(
 						message: 'Create a new event',
 						child: InkWell(
-							onTap: () => ScreenRoute.screenView(context, MainRoutes.newCountDown),
+							onTap: () => context.push(MainRoutes.newCountDown),
 							child: Container(
 								width: 40.0,
 								height: 40.0,

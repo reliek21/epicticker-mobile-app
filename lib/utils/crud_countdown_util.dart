@@ -1,10 +1,11 @@
+import 'package:epicticker/config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
 
 class CrudCountdown {
 	CrudCountdown._();
@@ -47,7 +48,7 @@ class CrudCountdown {
 	) {
 		nameController?.clear();
 		fullDateController?.clear();
-		ScreenRoute.screenView(context, MainRoutes.home);
+		context.push(MainRoutes.home);
 	}
 
 	static void saveCountdown(
@@ -60,7 +61,7 @@ class CrudCountdown {
 
 		if (_isValidDate(fullDate) && name.isNotEmpty) {
 			final List<String> dateParts = fullDate.split('/');
-      final CountDownEntity countdown = CountDownEntity(
+      final CountdownEntity countdown = CountdownEntity(
 				id: '$name-$fullDate',
         name: name,
         year: int.tryParse(dateParts[2]) ?? 0,
@@ -69,7 +70,7 @@ class CrudCountdown {
       );
 
       try {
-				Provider.of<CountDownProvider>(context, listen: false).addCountDown(countdown);
+				Provider.of<CountDownProvider>(context, listen: false).addCountdown(countdown);
 				_clearAndNavigate(context, nameController, fullDateController);
 				ReusableSnackBar.show(context: context, message: 'Congratulations, new event created.');
       } catch (e) {
@@ -90,7 +91,7 @@ class CrudCountdown {
 
     if (_isValidDate(fullDate) && name.isNotEmpty) {
 			final List<String> dateParts = fullDate.split('/');
-			final CountDownEntity countdown = CountDownEntity(
+			final CountdownEntity countdown = CountdownEntity(
         name: name,
         year: int.tryParse(dateParts[2]) ?? 0,
         month: int.tryParse(dateParts[1]) ?? 0,
@@ -111,7 +112,7 @@ class CrudCountdown {
 
   static void removeCountdown(
     BuildContext context,
-    CountDownEntity countDownEntity,
+    CountdownEntity countDownEntity,
   ) {
     Provider.of<CountDownProvider>(context, listen: false).removeCountDown(countDownEntity);
 		_clearAndNavigate(context, null, null);

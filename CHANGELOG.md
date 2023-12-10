@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Added
 
+- Prepare for the new design | [#45](https://github.com/reliek21/epicticker-mobile-app/pull/45) | [reliek21](https://github.com/reliek21)
 - App Icon and Name changed | [#29](https://github.com/reliek21/epicticker-mobile-app/pull/29) | [reliek21](https://github.com/reliek21)
 - New Dashboard design | [#29](https://github.com/reliek21/epicticker-mobile-app/pull/29) | [reliek21](https://github.com/reliek21)
 - Validations for the CRUD | [#24](https://github.com/reliek21/epicticker-mobile-app/pull/24) | [reliek21](https://github.com/reliek21)
