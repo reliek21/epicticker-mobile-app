@@ -1,5 +1,7 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:epicticker/config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/common/text_styles.dart';
@@ -29,7 +31,7 @@ class DashboardWidget extends StatelessWidget {
 						child: Center(
 							child: PrimaryButtonWidget(
 								text: 'Create new event',
-								onPressed: () => ScreenRoute.screenView(context, MainRoutes.newCountDown)
+								onPressed: () => context.push(MainRoutes.newCountDown)
 							),
 						),
 					);
@@ -129,7 +131,7 @@ class DashboardWidget extends StatelessWidget {
 								const SizedBox(height: 14.0),
 								PrimaryButtonWidget(
 									text: 'Create new event',
-									onPressed: () => ScreenRoute.screenView(context, MainRoutes.newCountDown)
+									onPressed: () => context.push(MainRoutes.newCountDown)
 								),
               ],
             ),

@@ -7,7 +7,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 	final String name;
 	final String createdAt;
 	final String daysLeft;
-	final String targetDate;
+	// final String targetDate;
 	final double completion;
 
 	const DayLeftCardNewWidget({
@@ -15,7 +15,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 		required this.name,
 		required this.createdAt,
 		required this.daysLeft,
-		required this.targetDate,
+		// required this.targetDate,
 		required this.completion
 	});
 
@@ -40,15 +40,36 @@ class DayLeftCardNewWidget extends StatelessWidget {
 				children: <Widget>[
 					Row(
 						crossAxisAlignment: CrossAxisAlignment.center,
-						mainAxisAlignment: MainAxisAlignment.spaceBetween,
+						mainAxisAlignment: MainAxisAlignment.start,
 						children: <Widget>[
-							Text(
-								name,
-								style: EpicTrackerTextStyles.heading(
-									color: EpicTrackerColors.main,
-									fontWeight: FontWeight.w900
+							Container(
+								width: 50.0,
+								height: 50.0,
+								decoration: BoxDecoration(
+									color: EpicTrackerColors.secondary,
+									borderRadius: BorderRadius.circular(5.0)
+								),
+								child: const Icon(
+									BootstrapIcons.activity,
+									size: 24.0,
+									color: EpicTrackerColors.accent,
 								),
 							),
+							const SizedBox(width: 8.0),
+							Container(
+								width: 200.0,
+								child: Text(
+									name,
+									style: EpicTrackerTextStyles.heading(
+										color: EpicTrackerColors.main,
+										fontWeight: FontWeight.w900
+									),
+									maxLines: 2,
+									softWrap: true,
+									overflow: TextOverflow.ellipsis,
+								),
+							),
+							const Spacer(),
 							IconButton(
 								onPressed: () { },
 								icon: const Icon(
@@ -59,9 +80,10 @@ class DayLeftCardNewWidget extends StatelessWidget {
 							)
 						],
 					),
+					const SizedBox(height: 10.0),
 					RichText(
 						text: TextSpan(
-							text: 'Days left: ',
+							text: 'Time remaining: ',
 							style: EpicTrackerTextStyles.title(
 								fontWeight: FontWeight.w900,
 								color: EpicTrackerColors.main
@@ -94,21 +116,21 @@ class DayLeftCardNewWidget extends StatelessWidget {
 							],
 						),
 					),
-					Container(
-						margin: const EdgeInsets.only(bottom: 4.0),
-						child: Row(
-							mainAxisAlignment: MainAxisAlignment.center,
-							children: <Widget>[
-								Text(
-									targetDate,
-									style: EpicTrackerTextStyles.title(
-										fontWeight: FontWeight.w900,
-										color: EpicTrackerColors.secondary
-									),
-								),
-							],
-						),
-					),
+					// Container(
+					// 	margin: const EdgeInsets.only(bottom: 4.0),
+					// 	child: Row(
+					// 		mainAxisAlignment: MainAxisAlignment.center,
+					// 		children: <Widget>[
+					// 			Text(
+					// 				targetDate,
+					// 				style: EpicTrackerTextStyles.title(
+					// 					fontWeight: FontWeight.w900,
+					// 					color: EpicTrackerColors.secondary
+					// 				),
+					// 			),
+					// 		],
+					// 	),
+					// ),
 					Stack(
 						children: <Widget>[
 							Container(

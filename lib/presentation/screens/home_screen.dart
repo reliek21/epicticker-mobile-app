@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 					),
     			Consumer<CountDownProvider>(
     				builder: (BuildContext context, CountDownProvider countdownProvider, Widget? child) {
-    					final List<CountdownEntity> countdowns = countdownProvider.getAllCountdowns();
+    					final List<CountdownEntity> countdowns = countdownProvider.getRecentCountdownByDays();
 
     					if (countdowns.isEmpty) const Center(child: Text('No countdowns yet.'));
 
@@ -99,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
     										child: DayLeftCardNewWidget(
 													name: countdown.name,
 													daysLeft: '${difference.years} years, ${difference.months} months, ${difference.days} days',
-													createdAt: 'Started: ${formatCreatedAt(countdown.createdAt.toString())}',
-													targetDate: 'Target for ${countdown.day} ${SelectMonth.getShortMonthName(countdown.month)}, ${countdown.year}',
+													createdAt: 'Target Date: ${formatCreatedAt(countdown.createdAt.toString())}',
+													// targetDate: 'Target Date${countdown.day} ${SelectMonth.getShortMonthName(countdown.month)}, ${countdown.year}',
 													completion: completionPercentage,
 												)
     									),

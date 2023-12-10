@@ -1,10 +1,11 @@
+import 'package:epicticker/config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
-import 'package:epicticker/presentation/routes/main_routes.dart';
 
 class CrudCountdown {
 	CrudCountdown._();
@@ -47,7 +48,7 @@ class CrudCountdown {
 	) {
 		nameController?.clear();
 		fullDateController?.clear();
-		ScreenRoute.screenView(context, MainRoutes.home);
+		context.push(MainRoutes.home);
 	}
 
 	static void saveCountdown(
