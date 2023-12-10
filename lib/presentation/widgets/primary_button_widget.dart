@@ -22,7 +22,11 @@ class PrimaryButtonWidget extends StatelessWidget {
         height: 56.0,
         decoration: BoxDecoration(
 					color: EpicTrackerColors.secondary,
-					borderRadius: BorderRadius.circular(20.0)
+					borderRadius: BorderRadius.circular(10.0),
+					border: Border.all(
+						color: EpicTrackerColors.main,
+						width: 2.0
+					)
 				),
 				child: Row(
 					mainAxisAlignment: MainAxisAlignment.center,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
-import 'package:epicticker/presentation/providers/crud/count_down_provider.dart';
+import 'package:epicticker/presentation/providers/count_down_provider.dart';
 import 'package:epicticker/presentation/widgets/snackbar_widget.dart';
 
 abstract class CrudCountdown {
@@ -68,7 +68,7 @@ abstract class CrudCountdown {
       );
 
       try {
-				Provider.of<CountDownProvider>(context, listen: false).addCountdown(countdown);
+				context.watch()<CountDownProvider>().addCountdown(countdown);
 				_clearAndNavigate(context, nameController, fullDateController);
 				ReusableSnackBar.show(context: context, message: 'Congratulations, new event created.');
       } catch (e) {
@@ -97,7 +97,7 @@ abstract class CrudCountdown {
       );
 
 			try {
-        Provider.of<CountDownProvider>(context, listen: false).updateCountDown(countdown);
+        context.watch<CountDownProvider>().updateCountDown(countdown);
 				_clearAndNavigate(context, nameController, fullDateController);
 				ReusableSnackBar.show(context: context, message: 'Event updated.');
       } catch (e) {
@@ -112,7 +112,7 @@ abstract class CrudCountdown {
     BuildContext context,
     CountdownEntity countDownEntity,
   ) {
-    Provider.of<CountDownProvider>(context, listen: false).removeCountDown(countDownEntity);
+    context.watch<CountDownProvider>().removeCountDown(countDownEntity);
 		_clearAndNavigate(context, null, null);
 		ReusableSnackBar.show(context: context, message: 'Event deleted.');
   }
