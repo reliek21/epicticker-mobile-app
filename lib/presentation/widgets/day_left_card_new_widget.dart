@@ -56,7 +56,7 @@ class DayLeftCardNewWidget extends StatelessWidget {
 								),
 							),
 							const SizedBox(width: 8.0),
-							Container(
+							SizedBox(
 								width: 200.0,
 								child: Text(
 									name,
