@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
 import 'package:epicticker/domain/entities/count_down_entity.dart';
-import 'package:epicticker/presentation/providers/countdown/count_down_state.dart';
+import 'package:epicticker/presentation/providers/count_down_state.dart';
 import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
