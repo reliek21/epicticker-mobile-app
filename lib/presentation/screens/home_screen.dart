@@ -5,7 +5,6 @@ import 'package:epicticker/domain/entities/count_down_entity.dart';
 import 'package:epicticker/presentation/providers/count_down_provider.dart';
 import 'package:epicticker/presentation/screens/edit_countdown_screen.dart';
 import 'package:epicticker/presentation/widgets/animation_limited_widget.dart';
-import 'package:epicticker/presentation/widgets/chip_filter_widget.dart';
 import 'package:epicticker/presentation/widgets/dashboard/dashboard_widget.dart';
 import 'package:epicticker/presentation/widgets/day_left_card/day_left_card_widget.dart';
 import 'package:epicticker/utils/difference_date_util.dart';
@@ -33,11 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
     	child: Column(
     		children: <Widget>[
     			const DashboardWidget(),
-					Container(
+    			Container(
 						margin: const EdgeInsets.symmetric(vertical: 20.0),
-						child: _FilterChip(),
+						child: _CardList()
 					),
-    			_CardList(),
     		],
     	),
     );
@@ -135,37 +133,6 @@ class _Card extends StatelessWidget {
 					completion: completionPercentage,
 				)
     	),
-    );
-  }
-}
-
-class _FilterChip extends StatelessWidget {
-  final SizedBox sizeWidth = const SizedBox(width: 8.0);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-    	children: <Widget>[
-    		ChipFilterWidget(
-    			text: 'Active',
-    			isActive: false,
-    			onTap: () {
-
-					},
-    		),
-    		sizeWidth,
-    		ChipFilterWidget(
-    			text: 'Archived',
-    			isActive: false,
-    			onTap: () {}
-    		),
-    		sizeWidth,
-    		ChipFilterWidget(
-    			text: 'Completed',
-    			isActive: true,
-    			onTap: () {}
-    		)
-    	],
     );
   }
 }
