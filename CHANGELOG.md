@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Dependencies
 
+- build(deps): bump intl from 0.18.1 to 0.19.0 | [#61](https://github.com/reliek21/epicticker-mobile-app/pull/61) | [reliek21](https://github.com/reliek21)
 - build(deps): bump go_router from 12.1.1 to 13.0.0 | [#62](https://github.com/reliek21/epicticker-mobile-app/pull/62) | [reliek21](https://github.com/reliek21)
 - build(deps): bump flutter_lints from 3.0.0 to 3.0.1 | [#28](https://github.com/reliek21/epicticker-mobile-app/pull/28) | [reliek21](https://github.com/reliek21)
 - build(deps): bump provider from 6.0.5 to 6.1.1 [#44](https://github.com/reliek21/epicticker-mobile-app/pull/44) | [reliek21](https://github.com/reliek21)
