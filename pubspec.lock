@@ -37,10 +37,10 @@ packages:
     dependency: "direct main"
     description:
       name: bootstrap_icons
-      sha256: "7b073ae60f9dd48c2919994744132b8a576cf7243483a6698644f94b0c47bd7d"
+      sha256: c3f19c363ceadf5493532108c6db7e3112eef62a371a1b1eb5c67968d95a1aef
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.1"
+    version: "1.11.3"
   change_app_package_name:
     dependency: "direct main"
     description:
