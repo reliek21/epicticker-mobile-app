@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   bootstrap_icons: ^1.11.3
-  change_app_package_name: ^1.1.0
+  change_app_package_name: ^1.2.0
   cupertino_icons: ^1.0.6
   flutter_boring_avatars: ^1.1.0
   flutter_launcher_icons: ^0.13.1
