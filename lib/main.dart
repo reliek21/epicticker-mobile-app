@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: <SingleChildWidget>[
         ChangeNotifierProvider<CountDownProvider>(
-            create: (_) => CountDownProvider(countdownRepository: countdownRepositoryImpl)
+            create: (_) => CountDownProvider(countdownRepository: CountdownRepositoryImpl(
+							countdownDatasource: LocalCountdownDatasource()
+						))
         )
       ],
       child: MaterialApp.router(

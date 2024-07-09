@@ -20,8 +20,8 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 
   @override
   void dispose() {
-    super.dispose();
 		_countDownState.dispose();
+    super.dispose();
   }
 
   Widget _body(BuildContext context) {

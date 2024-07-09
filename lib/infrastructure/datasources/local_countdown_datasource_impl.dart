@@ -150,10 +150,11 @@ class LocalCountdownDatasource implements CountdownDatasource {
     }
   }
 
-  Future<void> _updateSharePreferences(SharedPreferences prefs) async {
-    final String jsonString = json.encode(
-        _countDownList.map((CountdownEntity countdown) => countdown.toJson).toList()
-    );
+	Future<void> _updateSharePreferences(SharedPreferences prefs) async {
+    final String jsonString = json.encode(_countDownList
+            .map((CountdownEntity countdown) => countdown.toJson)
+            .toList() // toJson debería ser un método en CountdownEntity
+        );
 
     await prefs.setString('countdownList', jsonString);
   }

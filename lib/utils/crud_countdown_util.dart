@@ -68,7 +68,7 @@ abstract class CrudCountdown {
       );
 
       try {
-				context.watch()<CountDownProvider>().addCountdown(countdown);
+				context.read<CountDownProvider>().addCountdown(countdown);
 				_clearAndNavigate(context, nameController, fullDateController);
 				ReusableSnackBar.show(context: context, message: 'Congratulations, new event created.');
       } catch (e) {
