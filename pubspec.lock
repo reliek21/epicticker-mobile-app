@@ -146,10 +146,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_boring_avatars
-      sha256: "8817907d210f7e8315ec54bb5723adf50591d1bc35c4517e884907943792654e"
+      sha256: "281305a2f5441d00b12ff36f94ba8ae3b5eb3dda4114953f6040c8d899e99773"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "2.0.1"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -461,14 +461,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  svg_path_parser:
-    dependency: transitive
-    description:
-      name: svg_path_parser
-      sha256: adff09b1099a0c9e0dc81e1975de70999889f825c1a2e8e9139bab03464a3657
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.2"
   term_glyph:
     dependency: transitive
     description:
@@ -505,10 +497,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: f652077d0bdf60abe4c1f6377448e8655008eef28f128bc023f7b5e8dfeb48fc
+      sha256: "5c5f338a667b4c644744b661f309fb8080bb94b18a7e91ef1dbd343bed00ed6d"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.4"
+    version: "14.2.5"
   web:
     dependency: transitive
     description:
