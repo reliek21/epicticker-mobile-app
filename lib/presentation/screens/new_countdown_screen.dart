@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:epicticker/common/color.dart';
-import 'package:epicticker/presentation/providers/countdown/count_down_state.dart';
+import 'package:epicticker/presentation/providers/count_down_state.dart';
 import 'package:epicticker/presentation/widgets/appbar_widget.dart';
 import 'package:epicticker/presentation/widgets/custom_text_form_field_widget.dart';
 import 'package:epicticker/presentation/widgets/data_picker_widget.dart';
@@ -20,8 +20,8 @@ class _NewCountDownScreenState extends State<NewCountDownScreen> {
 
   @override
   void dispose() {
-    super.dispose();
 		_countDownState.dispose();
+    super.dispose();
   }
 
   Widget _body(BuildContext context) {

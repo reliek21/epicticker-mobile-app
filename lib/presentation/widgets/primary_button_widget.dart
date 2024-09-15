@@ -18,11 +18,15 @@ class PrimaryButtonWidget extends StatelessWidget {
 		return OutlinedButton(
 			onPressed: onPressed,
 			child: Container(
-				width: 299.0,
+				width: MediaQuery.of(context).size.width,
         height: 56.0,
         decoration: BoxDecoration(
-					color: EpicTrackerColors.main,
-					borderRadius: BorderRadius.circular(20.0)
+					color: EpicTrackerColors.secondary,
+					borderRadius: BorderRadius.circular(10.0),
+					border: Border.all(
+						color: EpicTrackerColors.main,
+						width: 2.0
+					)
 				),
 				child: Row(
 					mainAxisAlignment: MainAxisAlignment.center,
